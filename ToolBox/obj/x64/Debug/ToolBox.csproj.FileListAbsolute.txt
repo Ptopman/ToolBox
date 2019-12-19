@@ -17,3 +17,13 @@ E:\ToolBoxProject\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.CoreCompileInputs
 E:\ToolBoxProject\ToolBox\ToolBox\obj\x64\Debug\ToolBox.exe
 E:\ToolBoxProject\ToolBox\ToolBox\obj\x64\Debug\ToolBox.pdb
 E:\ToolBoxProject\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csprojAssemblyReference.cache
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.exe.config
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.exe
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.pdb
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csprojAssemblyReference.cache
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.Form1.resources
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.Properties.Resources.resources
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.GenerateResource.cache
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.CoreCompileInputs.cache
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.exe
+C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.pdb
