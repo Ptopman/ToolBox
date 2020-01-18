@@ -176,6 +176,10 @@ namespace ToolBox
             Process.Start(controlpath, "/name Microsoft.Mouse");
         }
 
+
+
+
+
         //Open on screen keyboard
         private void BTNosk_Click(object sender, EventArgs e)
         {
@@ -186,12 +190,6 @@ namespace ToolBox
         private void BTNServices_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("services.msc");
-        }
-
-        //Open Nvidia control panel
-        private void BTNNvidiaControl_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("C:\\Program Files\\NVIDIA Corporation\\Control Panel Client\\nvcplui.exe");
         }
 
         //Open windows 10 settings
@@ -257,9 +255,9 @@ namespace ToolBox
                 this.NIToolBox.ContextMenuStrip.Items.Add("Open ToolBox", null, this.IconOpenToolBox_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add("Task Manager", null, this.IconOpenTask_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+                this.NIToolBox.ContextMenuStrip.Items.Add("Close ToolBox", null, this.IconExitToolbox_click).ForeColor = Color.Red;
                 this.NIToolBox.ContextMenuStrip.Items.Add("Restart", null, this.IconRestart_click).ForeColor = Color.Red;
                 this.NIToolBox.ContextMenuStrip.Items.Add("Shutdown", null, this.IconShutdown_click).ForeColor = Color.Red;
-                this.NIToolBox.ContextMenuStrip.Items.Add("Close ToolBox", null, this.IconExitToolbox_click).ForeColor = Color.Red;
             }
         }
         void IconOpenToolBox_click(object sender, EventArgs e)
@@ -286,7 +284,13 @@ namespace ToolBox
         {
             Shutdown();
         }
-        
+        //Open pannel for computer information
+        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+        }
+
         //-----Methods-----
         //Start task manager
         private void TaskMan()

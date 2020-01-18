@@ -27,6 +27,8 @@ C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.Ge
 C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.CoreCompileInputs.cache
 C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.exe
 C:\Users\Abyss\Documents\gitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.pdb
+<<<<<<< Updated upstream
+=======
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.exe.config
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.exe
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.pdb
@@ -37,3 +39,5 @@ C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csp
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.CoreCompileInputs.cache
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.exe
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.pdb
+C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.Form2.resources
+>>>>>>> Stashed changes

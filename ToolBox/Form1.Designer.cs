@@ -57,7 +57,6 @@
             this.BTNosk = new System.Windows.Forms.Button();
             this.BTNRestart = new System.Windows.Forms.Button();
             this.BTNDisplaySet = new System.Windows.Forms.Button();
-            this.BTNNvidiaControl = new System.Windows.Forms.Button();
             this.BTNShutdown = new System.Windows.Forms.Button();
             this.BTNW10Settings = new System.Windows.Forms.Button();
             this.BTNShutToolBox = new System.Windows.Forms.Button();
@@ -81,6 +80,7 @@
             this.NIToolBox.Icon = ((System.Drawing.Icon)(resources.GetObject("NIToolBox.Icon")));
             this.NIToolBox.Text = "ToolBox";
             this.NIToolBox.Visible = true;
+            this.NIToolBox.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
             this.NIToolBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon1_MouseClick);
             // 
             // BTNControl
@@ -179,7 +179,7 @@
             this.BTNDeviceMan.Name = "BTNDeviceMan";
             this.BTNDeviceMan.Size = new System.Drawing.Size(218, 23);
             this.BTNDeviceMan.TabIndex = 0;
-            this.BTNDeviceMan.Text = "Divice Management";
+            this.BTNDeviceMan.Text = "Device Management";
             this.BTNDeviceMan.UseVisualStyleBackColor = true;
             this.BTNDeviceMan.Click += new System.EventHandler(this.BTNDeviceMan_Click);
             // 
@@ -195,7 +195,7 @@
             // 
             // BTNRegedit
             // 
-            this.BTNRegedit.Location = new System.Drawing.Point(12, 389);
+            this.BTNRegedit.Location = new System.Drawing.Point(263, 360);
             this.BTNRegedit.Name = "BTNRegedit";
             this.BTNRegedit.Size = new System.Drawing.Size(218, 23);
             this.BTNRegedit.TabIndex = 14;
@@ -335,16 +335,6 @@
             this.BTNDisplaySet.UseVisualStyleBackColor = true;
             this.BTNDisplaySet.Click += new System.EventHandler(this.BTNDisplaySet_Click);
             // 
-            // BTNNvidiaControl
-            // 
-            this.BTNNvidiaControl.Location = new System.Drawing.Point(263, 360);
-            this.BTNNvidiaControl.Name = "BTNNvidiaControl";
-            this.BTNNvidiaControl.Size = new System.Drawing.Size(218, 23);
-            this.BTNNvidiaControl.TabIndex = 29;
-            this.BTNNvidiaControl.Text = "Nvidia Control Panel";
-            this.BTNNvidiaControl.UseVisualStyleBackColor = true;
-            this.BTNNvidiaControl.Click += new System.EventHandler(this.BTNNvidiaControl_Click);
-            // 
             // BTNShutdown
             // 
             this.BTNShutdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,7 +389,6 @@
             this.ClientSize = new System.Drawing.Size(498, 548);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BTNW10Settings);
-            this.Controls.Add(this.BTNNvidiaControl);
             this.Controls.Add(this.BTNDisplaySet);
             this.Controls.Add(this.BTNosk);
             this.Controls.Add(this.BTNMouse);
@@ -466,7 +455,6 @@
         private System.Windows.Forms.Button BTNosk;
         private System.Windows.Forms.Button BTNRestart;
         private System.Windows.Forms.Button BTNDisplaySet;
-        private System.Windows.Forms.Button BTNNvidiaControl;
         private System.Windows.Forms.Button BTNShutdown;
         private System.Windows.Forms.Button BTNW10Settings;
         private System.Windows.Forms.Button BTNShutToolBox;
