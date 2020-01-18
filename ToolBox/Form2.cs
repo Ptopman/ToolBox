@@ -10,12 +10,14 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Management;
 using System.Diagnostics;
+using System.Net.NetworkInformation;
 
 namespace ToolBox
 {
     public partial class Form2 : Form
     {
         Form3 f3 = new Form3();
+
         public Form2()
         {
             f3.Show();
@@ -25,6 +27,7 @@ namespace ToolBox
         private Int64 totalMemory = 0;
         PerformanceCounter CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         PerformanceCounter MemCounter = new PerformanceCounter("Memory", "Available MBytes");
+        PerformanceCounter UpTimeCounter = new PerformanceCounter("System","System Up Time");
 
         //Using a timer to update CPU load %
         private void TickTock(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace ToolBox
             CPU = Math.Round(CPU, 2);
             LBLCPULoad.Text = "CPULoad: " + CPU.ToString() + "%";
 
-            LBLMemoryAvailable.Text = "Memory Available: " + MemCounter.NextValue() + "MB / " + totalMemory + "MB"; 
+            LBLMemoryAvailable.Text = "Memory Usage: " + (totalMemory - MemCounter.NextValue()) + "MB / " + totalMemory + "MB"; 
         }
 
         private void TickTock2(object sender, EventArgs e)
@@ -95,10 +98,47 @@ namespace ToolBox
                 totalMemory = Convert.ToInt64(share["TotalPhysicalMemory"]);
                 totalMemory /= 1024;
                 totalMemory /= 1024;
-                richTextBox2.AppendText(totalMemory.ToString());
+                RTBWindowsInfo.AppendText(totalMemory.ToString());
             }
 
+            ManagementObjectSearcher WindowsSearcher = new ManagementObjectSearcher("Select * From Win32_OperatingSystem");
+            foreach (ManagementObject share in WindowsSearcher.Get())
+            {
+                RTBWindowsInfo.Text = "";
+                RTBWindowsInfo.AppendText("Windows Edition: " + share["Caption"].ToString() + "\n");
+                RTBWindowsInfo.AppendText("Windows Architecture: " + share["OSArchitecture"].ToString() + "\n");
+                RTBWindowsInfo.AppendText("BuildNumber: " + share["Version"].ToString() + " Build: " + share["BuildNumber"].ToString() + "\n");
+                DateTime IstDt = ManagementDateTimeConverter.ToDateTime((string)share["InstallDate"]);
+                DateTime BootDt = ManagementDateTimeConverter.ToDateTime((string)share["LastBootUpTime"]);
+                RTBWindowsInfo.AppendText("InstallDate: " + IstDt.ToString("MM-dd-yyy") + "\n");
+                UpTimeCounter.NextValue();
+                var time = TimeSpan.FromSeconds(UpTimeCounter.NextValue());
+                RTBWindowsInfo.AppendText("Last Boot: " + BootDt.ToString("MM-dd-yyy") + " UpTime: " + "Days: " + time.Days + " Hours: " + time.Hours + " Minutes: " + time.Minutes);
+            }
 
+            foreach(NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if(ni.OperationalStatus == OperationalStatus.Up)
+                {
+                    RTBNetworkInfo.AppendText(ni.Description.ToString() + " = " + (ni.Speed / 1000000).ToString() + "Mbps = ");
+                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                    {
+                        if(ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        {
+                            RTBNetworkInfo.AppendText(ip.Address.ToString());
+                        }
+                    }
+                    RTBNetworkInfo.AppendText("\n");
+                }
+            }
+
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.OperationalStatus == OperationalStatus.Down)
+                {
+                    RTBNetworkInfo.AppendText(ni.Description.ToString() + " = " + ni.OperationalStatus.ToString() + "\n");
+                }
+            }
             f3.Close();
         }
     }

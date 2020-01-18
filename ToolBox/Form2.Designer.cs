@@ -32,13 +32,16 @@
             this.LBLCpuInfo = new System.Windows.Forms.Label();
             this.RTBCpuInfo = new System.Windows.Forms.RichTextBox();
             this.RTBMotherboard = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.RTBWindowsInfo = new System.Windows.Forms.RichTextBox();
             this.LBLMotherboardInfo = new System.Windows.Forms.Label();
             this.LBLCPULoad = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.LBLMemoryAvailable = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.LBLWindowsInfo = new System.Windows.Forms.Label();
+            this.LBLNetworkInfo = new System.Windows.Forms.Label();
+            this.RTBNetworkInfo = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // LBLCpuInfo
@@ -69,17 +72,19 @@
             this.RTBMotherboard.Name = "RTBMotherboard";
             this.RTBMotherboard.Size = new System.Drawing.Size(352, 73);
             this.RTBMotherboard.TabIndex = 13;
-            this.RTBMotherboard.Text = "Manufacturer: NA\nProduct: NA\nSerialNumber: NA";
+            this.RTBMotherboard.Text = "Manufacturer: NA\nProduct: NA\nSerialNumber: NA\nBIOS Version: NA\nBIOS Release Date:" +
+    " NA";
             // 
-            // richTextBox2
+            // RTBWindowsInfo
             // 
-            this.richTextBox2.BackColor = System.Drawing.Color.White;
-            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richTextBox2.Location = new System.Drawing.Point(12, 276);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(352, 73);
-            this.richTextBox2.TabIndex = 14;
-            this.richTextBox2.Text = "PlaceHolder";
+            this.RTBWindowsInfo.BackColor = System.Drawing.Color.White;
+            this.RTBWindowsInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RTBWindowsInfo.Location = new System.Drawing.Point(12, 285);
+            this.RTBWindowsInfo.Name = "RTBWindowsInfo";
+            this.RTBWindowsInfo.Size = new System.Drawing.Size(352, 73);
+            this.RTBWindowsInfo.TabIndex = 14;
+            this.RTBWindowsInfo.Text = "Windows Edition: NA\nWindows Architecture: NA\nBuild Number: NA\nInstall Date: NA\nLa" +
+    "st Boot Up: NA";
             // 
             // LBLMotherboardInfo
             // 
@@ -123,7 +128,7 @@
             this.LBLMemoryAvailable.Name = "LBLMemoryAvailable";
             this.LBLMemoryAvailable.Size = new System.Drawing.Size(352, 23);
             this.LBLMemoryAvailable.TabIndex = 18;
-            this.LBLMemoryAvailable.Text = "Memory Available:";
+            this.LBLMemoryAvailable.Text = "Memory Usage:";
             this.LBLMemoryAvailable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // timer2
@@ -131,16 +136,47 @@
             this.timer2.Interval = 5000;
             this.timer2.Tick += new System.EventHandler(this.TickTock2);
             // 
+            // LBLWindowsInfo
+            // 
+            this.LBLWindowsInfo.Location = new System.Drawing.Point(12, 259);
+            this.LBLWindowsInfo.Name = "LBLWindowsInfo";
+            this.LBLWindowsInfo.Size = new System.Drawing.Size(139, 23);
+            this.LBLWindowsInfo.TabIndex = 19;
+            this.LBLWindowsInfo.Text = "Windows Information: ";
+            this.LBLWindowsInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LBLNetworkInfo
+            // 
+            this.LBLNetworkInfo.Location = new System.Drawing.Point(12, 361);
+            this.LBLNetworkInfo.Name = "LBLNetworkInfo";
+            this.LBLNetworkInfo.Size = new System.Drawing.Size(139, 23);
+            this.LBLNetworkInfo.TabIndex = 21;
+            this.LBLNetworkInfo.Text = "Network Information: ";
+            this.LBLNetworkInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // RTBNetworkInfo
+            // 
+            this.RTBNetworkInfo.BackColor = System.Drawing.Color.White;
+            this.RTBNetworkInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RTBNetworkInfo.Location = new System.Drawing.Point(12, 387);
+            this.RTBNetworkInfo.Name = "RTBNetworkInfo";
+            this.RTBNetworkInfo.Size = new System.Drawing.Size(352, 131);
+            this.RTBNetworkInfo.TabIndex = 20;
+            this.RTBNetworkInfo.Text = "";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 604);
+            this.Controls.Add(this.LBLNetworkInfo);
+            this.Controls.Add(this.RTBNetworkInfo);
+            this.Controls.Add(this.LBLWindowsInfo);
             this.Controls.Add(this.LBLMemoryAvailable);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LBLCPULoad);
             this.Controls.Add(this.LBLMotherboardInfo);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.RTBWindowsInfo);
             this.Controls.Add(this.RTBMotherboard);
             this.Controls.Add(this.RTBCpuInfo);
             this.Controls.Add(this.LBLCpuInfo);
@@ -156,12 +192,15 @@
         private System.Windows.Forms.Label LBLCpuInfo;
         private System.Windows.Forms.RichTextBox RTBCpuInfo;
         private System.Windows.Forms.RichTextBox RTBMotherboard;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox RTBWindowsInfo;
         private System.Windows.Forms.Label LBLMotherboardInfo;
         private System.Windows.Forms.Label LBLCPULoad;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LBLMemoryAvailable;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label LBLWindowsInfo;
+        private System.Windows.Forms.Label LBLNetworkInfo;
+        private System.Windows.Forms.RichTextBox RTBNetworkInfo;
     }
 }
