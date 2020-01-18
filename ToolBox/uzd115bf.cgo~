@@ -22,20 +22,17 @@ namespace ToolBox
             InitializeComponent();
         }
 
-        private Int64 totalMemory = 0;
         PerformanceCounter CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         PerformanceCounter MemCounter = new PerformanceCounter("Memory", "Available MBytes");
 
         //Using a timer to update CPU load %
         private void TickTock(object sender, EventArgs e)
         {
-            //ima comment this at a later point...
             double CPU = 0;
             CPU = CpuCounter.NextValue();
             CPU = Math.Round(CPU, 2);
             LBLCPULoad.Text = "CPULoad: " + CPU.ToString() + "%";
-
-            LBLMemoryAvailable.Text = "Memory Available: " + MemCounter.NextValue() + "MB / " + totalMemory + "MB"; 
+            LBLMemoryAvailable.Text = "Memory Available: " + MemCounter.NextValue().ToString() + "MB"; 
         }
 
         private void TickTock2(object sender, EventArgs e)
@@ -84,19 +81,10 @@ namespace ToolBox
             foreach (ManagementObject share in BiosSearcher.Get())
             {
                 RTBMotherboard.AppendText("BIOS Version: " + (string)share["SMBIOSBIOSVersion"] + "\n");
-                string relDt = (string)share["ReleaseDate"];
-                DateTime dt = ManagementDateTimeConverter.ToDateTime(relDt);
-                RTBMotherboard.AppendText("Bios Release Date: " + dt.ToString("MM-dd-yyy"));
+                RTBMotherboard.AppendText("BIOS Version: " + (string)share["ReleaseDate"] + "\n");
+
             }
 
-            ManagementObjectSearcher MemorySearcher = new ManagementObjectSearcher("Select * From Win32_ComputerSystem");
-            foreach (ManagementObject share in MemorySearcher.Get())
-            {
-                totalMemory = Convert.ToInt64(share["TotalPhysicalMemory"]);
-                totalMemory /= 1024;
-                totalMemory /= 1024;
-                richTextBox2.AppendText(totalMemory.ToString());
-            }
 
 
             f3.Close();
