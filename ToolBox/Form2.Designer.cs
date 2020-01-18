@@ -34,7 +34,7 @@
             this.RTBMotherboard = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.LBLMotherboardInfo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LBLCPULoad = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -88,14 +88,14 @@
             this.LBLMotherboardInfo.Text = "Motherboard Information:";
             this.LBLMotherboardInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // LBLCPULoad
             // 
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 23);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "CPULoad:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LBLCPULoad.Location = new System.Drawing.Point(12, 9);
+            this.LBLCPULoad.Name = "LBLCPULoad";
+            this.LBLCPULoad.Size = new System.Drawing.Size(174, 23);
+            this.LBLCPULoad.TabIndex = 16;
+            this.LBLCPULoad.Text = "CPULoad:";
+            this.LBLCPULoad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // timer1
             // 
@@ -121,7 +121,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 441);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LBLCPULoad);
             this.Controls.Add(this.LBLMotherboardInfo);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.RTBMotherboard);
@@ -141,7 +141,7 @@
         private System.Windows.Forms.RichTextBox RTBMotherboard;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label LBLMotherboardInfo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LBLCPULoad;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
     }

@@ -144,11 +144,13 @@ namespace ToolBox
         //Open reliability monitor
         private void BTNReliabilityMon_Click(object sender, EventArgs e)
         {
+            //More comments on whats happening near end of program
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
             {
                 WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
                 FileName = "cmd.exe",
+                //This argument starts the Performance Reliability Monitor
                 Arguments = "/C perfmon /rel"
             };
             process.StartInfo = startInfo;
@@ -176,10 +178,6 @@ namespace ToolBox
             Process.Start(controlpath, "/name Microsoft.Mouse");
         }
 
-
-
-
-
         //Open on screen keyboard
         private void BTNosk_Click(object sender, EventArgs e)
         {
@@ -195,11 +193,13 @@ namespace ToolBox
         //Open windows 10 settings
         private void BTNW10Settings_Click(object sender, EventArgs e)
         {
+            //More comments on whats happening near end of program
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
             {
                 WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
                 FileName = "cmd.exe",
+                //This argument start the Windows 10 settings
                 Arguments = "/C start ms-settings:settings"
             };
             process.StartInfo = startInfo;
@@ -210,11 +210,13 @@ namespace ToolBox
         //Open windows 10 display settings
         private void BTNDisplaySet_Click(object sender, EventArgs e)
         {
+            //More comments on whats happening near end of program
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
             {
                 WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
                 FileName = "cmd.exe",
+                //This argument start the Windows 10 display settings
                 Arguments = "/C start ms-settings:display"
             };
             process.StartInfo = startInfo;
@@ -238,10 +240,14 @@ namespace ToolBox
         //When user presses the windows fourm exit button, it minimizes it instead of closing the application
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //When 0, this will prevent the form from closing
             if(flag == 0)
             {
+                //Stops the form from closing
                 e.Cancel = true;
+                //Minimized the form
                 this.WindowState = FormWindowState.Minimized;
+                //Hides the taksbar icon
                 this.Hide();
             }
         }
@@ -251,6 +257,7 @@ namespace ToolBox
         {
             if (e.Button == MouseButtons.Right)
             {
+                //Add buttons to the context menu
                 this.NIToolBox.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
                 this.NIToolBox.ContextMenuStrip.Items.Add("Open ToolBox", null, this.IconOpenToolBox_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add("Task Manager", null, this.IconOpenTask_click);
@@ -260,34 +267,47 @@ namespace ToolBox
                 this.NIToolBox.ContextMenuStrip.Items.Add("Shutdown", null, this.IconShutdown_click).ForeColor = Color.Red;
             }
         }
+        
+        //Opens shows Form1 (toolbox) and sets the window state to normal
         void IconOpenToolBox_click(object sender, EventArgs e)
         {
             Show();
             this.WindowState = FormWindowState.Normal;
         }
 
+        //Opens task manager via method
         void IconOpenTask_click(object sender, EventArgs e)
         {
             TaskMan();
         }
 
+        //Sets the flag to 1 to skip e.Cancel in Form1_FormClosing 
         void IconExitToolbox_click(object sender, EventArgs e)
         {
+            //Sets flag to 1 so that the application can shutdown
             flag = 1;
+            //Call form Closing
             Application.Exit();
         }
+
+        //calles the restart method when pressed
         void IconRestart_click(object sender, EventArgs e)
         {
             Restart();
         }
+
+        //called the shutdown method when pressed
         void IconShutdown_click(object sender, EventArgs e)
         {
             Shutdown();
         }
+
         //Open pannel for computer information
         private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
         {
+            //Create new form2 () object
             Form2 f2 = new Form2();
+            //Start and show the form
             f2.Show();
         }
 
@@ -303,50 +323,78 @@ namespace ToolBox
         {
             Restart();
         }
+
+        //Restart method
         private void Restart()
         {
+            //Displayed a yes / no dialog windows asking if you want to restart
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to restart?", "Restart", MessageBoxButtons.YesNo);
+            //If dialog window yes is pressed
             if (dialogResult == DialogResult.Yes)
             {
+                //New process
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
+                //Process start information
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
                 {
+                    //Keep window hidded
                     WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                    //Process is Command prompt
                     FileName = "cmd.exe",
+                    //Arguments to be passed to the command prompt
                     Arguments = "/C shutdown /r /t 10"
+                    //Argument needs to start with /C, command is "Shutdown", /r is restart, /t is count down followed by number of seconds
                 };
+                //Passing the start information to the process start
                 process.StartInfo = startInfo;
+                //Start the process, command will run
                 process.Start();
+                //Once compleated, dispose of process
                 process.Dispose();
             }
+            //if dialog window no is pressed
             else if (dialogResult == DialogResult.No)
             {
-                
+                //NOTHING, DO NOTHING!!!
             }
         }
 
+        //Shutdown method
         private void Shutdown()
         {
+            //Displayed a yes / no dialog windows asking if you want to shutdown
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to shutdown?", "Shutdown", MessageBoxButtons.YesNo);
+            //If dialog window yes is pressed
             if (dialogResult == DialogResult.Yes)
             {
+                //new process
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
+                //Process start information
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
                 {
+                    //Keep window hidded
                     WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                    //Process is command prompt
                     FileName = "cmd.exe",
+                    //arguments to be passed to the command prompt
                     Arguments = "/C shutdown /s /t 10"
+                    //Argument needs to start with /C, command is "Shutdown", /s is shutdown, /t is count down followed by number of seconds
                 };
+                //Passing the start information to the process start
                 process.StartInfo = startInfo;
+                //Start the process, command will run
                 process.Start();
+                //Once compleated, dispose of process
                 process.Dispose();
             }
+            //If dialog window no is pressed
             else if (dialogResult == DialogResult.No)
             {
-
+                //NOTHING, DO NOTHING!!!
             }
         }
 
+        //call shutdown method when pressed
         private void BTNShutdown_Click(object sender, EventArgs e)
         {
             Shutdown();
