@@ -63,16 +63,16 @@
             this.RTBCpuInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTBCpuInfo.Location = new System.Drawing.Point(12, 81);
             this.RTBCpuInfo.Name = "RTBCpuInfo";
-            this.RTBCpuInfo.Size = new System.Drawing.Size(352, 113);
+            this.RTBCpuInfo.Size = new System.Drawing.Size(352, 102);
             this.RTBCpuInfo.TabIndex = 12;
             this.RTBCpuInfo.Text = "Name: NA\nNumberOfCores: NA\nNumberOfLogicalProcessors: NA\nStatus: NA\nSystemName: N" +
-    "A";
+    "A\nModel: NA\nManufacturer: NA";
             // 
             // RTBMotherboard
             // 
             this.RTBMotherboard.BackColor = System.Drawing.Color.White;
             this.RTBMotherboard.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBMotherboard.Location = new System.Drawing.Point(12, 223);
+            this.RTBMotherboard.Location = new System.Drawing.Point(12, 212);
             this.RTBMotherboard.Name = "RTBMotherboard";
             this.RTBMotherboard.Size = new System.Drawing.Size(352, 73);
             this.RTBMotherboard.TabIndex = 13;
@@ -83,7 +83,7 @@
             // 
             this.RTBWindowsInfo.BackColor = System.Drawing.Color.White;
             this.RTBWindowsInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBWindowsInfo.Location = new System.Drawing.Point(12, 325);
+            this.RTBWindowsInfo.Location = new System.Drawing.Point(12, 314);
             this.RTBWindowsInfo.Name = "RTBWindowsInfo";
             this.RTBWindowsInfo.Size = new System.Drawing.Size(352, 73);
             this.RTBWindowsInfo.TabIndex = 14;
@@ -92,7 +92,7 @@
             // 
             // LBLMotherboardInfo
             // 
-            this.LBLMotherboardInfo.Location = new System.Drawing.Point(12, 197);
+            this.LBLMotherboardInfo.Location = new System.Drawing.Point(12, 186);
             this.LBLMotherboardInfo.Name = "LBLMotherboardInfo";
             this.LBLMotherboardInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLMotherboardInfo.TabIndex = 15;
@@ -142,7 +142,7 @@
             // 
             // LBLWindowsInfo
             // 
-            this.LBLWindowsInfo.Location = new System.Drawing.Point(12, 299);
+            this.LBLWindowsInfo.Location = new System.Drawing.Point(12, 288);
             this.LBLWindowsInfo.Name = "LBLWindowsInfo";
             this.LBLWindowsInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLWindowsInfo.TabIndex = 19;
@@ -151,7 +151,7 @@
             // 
             // LBLNetworkInfo
             // 
-            this.LBLNetworkInfo.Location = new System.Drawing.Point(12, 401);
+            this.LBLNetworkInfo.Location = new System.Drawing.Point(12, 390);
             this.LBLNetworkInfo.Name = "LBLNetworkInfo";
             this.LBLNetworkInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLNetworkInfo.TabIndex = 21;
@@ -162,7 +162,7 @@
             // 
             this.RTBNetworkInfo.BackColor = System.Drawing.Color.White;
             this.RTBNetworkInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBNetworkInfo.Location = new System.Drawing.Point(12, 427);
+            this.RTBNetworkInfo.Location = new System.Drawing.Point(12, 416);
             this.RTBNetworkInfo.Name = "RTBNetworkInfo";
             this.RTBNetworkInfo.Size = new System.Drawing.Size(352, 131);
             this.RTBNetworkInfo.TabIndex = 20;
@@ -172,7 +172,7 @@
             // 
             this.RTBGPUInfo.BackColor = System.Drawing.Color.White;
             this.RTBGPUInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBGPUInfo.Location = new System.Drawing.Point(12, 587);
+            this.RTBGPUInfo.Location = new System.Drawing.Point(12, 576);
             this.RTBGPUInfo.Name = "RTBGPUInfo";
             this.RTBGPUInfo.Size = new System.Drawing.Size(352, 73);
             this.RTBGPUInfo.TabIndex = 22;
@@ -180,7 +180,7 @@
             // 
             // LBLGPUInfo
             // 
-            this.LBLGPUInfo.Location = new System.Drawing.Point(12, 561);
+            this.LBLGPUInfo.Location = new System.Drawing.Point(12, 550);
             this.LBLGPUInfo.Name = "LBLGPUInfo";
             this.LBLGPUInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLGPUInfo.TabIndex = 23;
@@ -189,7 +189,7 @@
             // 
             // BTNClose
             // 
-            this.BTNClose.Location = new System.Drawing.Point(15, 666);
+            this.BTNClose.Location = new System.Drawing.Point(15, 655);
             this.BTNClose.Name = "BTNClose";
             this.BTNClose.Size = new System.Drawing.Size(75, 23);
             this.BTNClose.TabIndex = 24;
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 828);
+            this.ClientSize = new System.Drawing.Size(376, 760);
             this.Controls.Add(this.BTNClose);
             this.Controls.Add(this.LBLGPUInfo);
             this.Controls.Add(this.RTBGPUInfo);

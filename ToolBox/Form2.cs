@@ -115,6 +115,7 @@ namespace ToolBox
                 RTBWindowsInfo.AppendText(totalMemory.ToString());
 
                 RTBCpuInfo.AppendText("\nModel: " + share["Model"]);
+                RTBCpuInfo.AppendText("\nManufacturer: " + share["Manufacturer"]);
             }
 
             ManagementObjectSearcher WindowsSearcher = new ManagementObjectSearcher("Select * From Win32_OperatingSystem");
