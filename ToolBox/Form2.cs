@@ -149,7 +149,13 @@ namespace ToolBox
                 RTBGPUInfo.AppendText("Driver Date: " + GpuDvDt.ToString("MM-dd-yyy") + "\n");
             }
 
-            foreach(NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            ManagementObjectSearcher DisplaySearcher = new ManagementObjectSearcher("Select * From Win32_DisplayConfiguration");
+            foreach (ManagementObject share in DisplaySearcher.Get())
+            {
+                RTBGPUInfo.AppendText("Display: " + share["DeviceName"].ToString() + "\n");
+            }
+
+                foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
                 //Pull all network interfaces with a status of Up
                 if(ni.OperationalStatus == OperationalStatus.Up)
