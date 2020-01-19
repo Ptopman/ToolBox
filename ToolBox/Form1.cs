@@ -94,6 +94,7 @@ namespace ToolBox
             ProcessStartInfo info = new ProcessStartInfo("cmd.exe")
             {
                 UseShellExecute = true,
+          
                 Verb = "runas"
             };
             Process.Start(info);

@@ -25,6 +25,8 @@ namespace ToolBox
         }
 
         private Int64 totalMemory = 0;
+
+        //Performance Counter Objects for processor speed, Available memory, and the System uptime.
         PerformanceCounter CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         PerformanceCounter MemCounter = new PerformanceCounter("Memory", "Available MBytes");
         PerformanceCounter UpTimeCounter = new PerformanceCounter("System","System Up Time");
@@ -32,17 +34,20 @@ namespace ToolBox
         //Using a timer to update CPU load %
         private void TickTock(object sender, EventArgs e)
         {
-            //ima comment this at a later point...
+            //This timer runs every 500ms
+
+            //Getting current CPU Usage
             double CPU = 0;
             CPU = CpuCounter.NextValue();
             CPU = Math.Round(CPU, 2);
             LBLCPULoad.Text = "CPULoad: " + CPU.ToString() + "%";
-
+            //Getting current available memory amount and doing math to get how much is being used.
             LBLMemoryAvailable.Text = "Memory Usage: " + (totalMemory - MemCounter.NextValue()) + "MB / " + totalMemory + "MB"; 
         }
 
         private void TickTock2(object sender, EventArgs e)
         {
+            //Collect garbage and free up some ram every 5 seconds
             GC.Collect();
         }
 
@@ -86,7 +91,9 @@ namespace ToolBox
             ManagementObjectSearcher BiosSearcher = new ManagementObjectSearcher("Select * From " + "Win32_BIOS");
             foreach (ManagementObject share in BiosSearcher.Get())
             {
+                //Getting the BIOS version
                 RTBMotherboard.AppendText("BIOS Version: " + (string)share["SMBIOSBIOSVersion"] + "\n");
+                //Getting the release date of the BIOS as well as changing the date format into a readable format
                 string relDt = (string)share["ReleaseDate"];
                 DateTime dt = ManagementDateTimeConverter.ToDateTime(relDt);
                 RTBMotherboard.AppendText("Bios Release Date: " + dt.ToString("MM-dd-yyy"));
@@ -95,7 +102,9 @@ namespace ToolBox
             ManagementObjectSearcher MemorySearcher = new ManagementObjectSearcher("Select * From Win32_ComputerSystem");
             foreach (ManagementObject share in MemorySearcher.Get())
             {
+                //Getting total memory of computer
                 totalMemory = Convert.ToInt64(share["TotalPhysicalMemory"]);
+                //Memory is get; by bytes so change it to mebabytes
                 totalMemory /= 1024;
                 totalMemory /= 1024;
                 RTBWindowsInfo.AppendText(totalMemory.ToString());
@@ -104,13 +113,16 @@ namespace ToolBox
             ManagementObjectSearcher WindowsSearcher = new ManagementObjectSearcher("Select * From Win32_OperatingSystem");
             foreach (ManagementObject share in WindowsSearcher.Get())
             {
+                //Getting windows information
                 RTBWindowsInfo.Text = "";
                 RTBWindowsInfo.AppendText("Windows Edition: " + share["Caption"].ToString() + "\n");
                 RTBWindowsInfo.AppendText("Windows Architecture: " + share["OSArchitecture"].ToString() + "\n");
                 RTBWindowsInfo.AppendText("BuildNumber: " + share["Version"].ToString() + " Build: " + share["BuildNumber"].ToString() + "\n");
+                //Changing windows install date and last boot date to a readable format
                 DateTime IstDt = ManagementDateTimeConverter.ToDateTime((string)share["InstallDate"]);
                 DateTime BootDt = ManagementDateTimeConverter.ToDateTime((string)share["LastBootUpTime"]);
                 RTBWindowsInfo.AppendText("InstallDate: " + IstDt.ToString("MM-dd-yyy") + "\n");
+                //Getting system uptime and formatting it
                 UpTimeCounter.NextValue();
                 var time = TimeSpan.FromSeconds(UpTimeCounter.NextValue());
                 RTBWindowsInfo.AppendText("Last Boot: " + BootDt.ToString("MM-dd-yyy") + " UpTime: " + "Days: " + time.Days + " Hours: " + time.Hours + " Minutes: " + time.Minutes);
@@ -118,11 +130,14 @@ namespace ToolBox
 
             foreach(NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
+                //Pull all network interfaces with a status of Up
                 if(ni.OperationalStatus == OperationalStatus.Up)
                 {
+                    //Pull the discription of the NIC and speed, formatt speed to Mbps
                     RTBNetworkInfo.AppendText(ni.Description.ToString() + " = " + (ni.Speed / 1000000).ToString() + "Mbps = ");
                     foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
                     {
+                        //Getting the IPV4 address of the current NIC
                         if(ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                         {
                             RTBNetworkInfo.AppendText(ip.Address.ToString());
@@ -134,6 +149,7 @@ namespace ToolBox
 
             foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
+                //For all NICs that are down, display the discription and status
                 if (ni.OperationalStatus == OperationalStatus.Down)
                 {
                     RTBNetworkInfo.AppendText(ni.Description.ToString() + " = " + ni.OperationalStatus.ToString() + "\n");
