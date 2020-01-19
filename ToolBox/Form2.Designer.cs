@@ -63,16 +63,16 @@
             this.RTBCpuInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTBCpuInfo.Location = new System.Drawing.Point(12, 81);
             this.RTBCpuInfo.Name = "RTBCpuInfo";
-            this.RTBCpuInfo.Size = new System.Drawing.Size(352, 102);
+            this.RTBCpuInfo.Size = new System.Drawing.Size(352, 86);
             this.RTBCpuInfo.TabIndex = 12;
             this.RTBCpuInfo.Text = "Name: NA\nNumberOfCores: NA\nNumberOfLogicalProcessors: NA\nStatus: NA\nSystemName: N" +
-    "A\nModel: NA\nManufacturer: NA";
+    "A\nModel: NA";
             // 
             // RTBMotherboard
             // 
             this.RTBMotherboard.BackColor = System.Drawing.Color.White;
             this.RTBMotherboard.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBMotherboard.Location = new System.Drawing.Point(12, 212);
+            this.RTBMotherboard.Location = new System.Drawing.Point(12, 196);
             this.RTBMotherboard.Name = "RTBMotherboard";
             this.RTBMotherboard.Size = new System.Drawing.Size(352, 73);
             this.RTBMotherboard.TabIndex = 13;
@@ -83,16 +83,16 @@
             // 
             this.RTBWindowsInfo.BackColor = System.Drawing.Color.White;
             this.RTBWindowsInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBWindowsInfo.Location = new System.Drawing.Point(12, 314);
+            this.RTBWindowsInfo.Location = new System.Drawing.Point(12, 298);
             this.RTBWindowsInfo.Name = "RTBWindowsInfo";
-            this.RTBWindowsInfo.Size = new System.Drawing.Size(352, 73);
+            this.RTBWindowsInfo.Size = new System.Drawing.Size(352, 86);
             this.RTBWindowsInfo.TabIndex = 14;
             this.RTBWindowsInfo.Text = "Windows Edition: NA\nWindows Architecture: NA\nBuild Number: NA\nInstall Date: NA\nLa" +
-    "st Boot Up: NA";
+    "st Boot Up: NA\nSystem Uptime: NA";
             // 
             // LBLMotherboardInfo
             // 
-            this.LBLMotherboardInfo.Location = new System.Drawing.Point(12, 186);
+            this.LBLMotherboardInfo.Location = new System.Drawing.Point(12, 170);
             this.LBLMotherboardInfo.Name = "LBLMotherboardInfo";
             this.LBLMotherboardInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLMotherboardInfo.TabIndex = 15;
@@ -119,7 +119,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(35, 700);
+            this.label2.Location = new System.Drawing.Point(35, 713);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(302, 48);
             this.label2.TabIndex = 17;
@@ -142,7 +142,7 @@
             // 
             // LBLWindowsInfo
             // 
-            this.LBLWindowsInfo.Location = new System.Drawing.Point(12, 288);
+            this.LBLWindowsInfo.Location = new System.Drawing.Point(12, 272);
             this.LBLWindowsInfo.Name = "LBLWindowsInfo";
             this.LBLWindowsInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLWindowsInfo.TabIndex = 19;
@@ -151,7 +151,7 @@
             // 
             // LBLNetworkInfo
             // 
-            this.LBLNetworkInfo.Location = new System.Drawing.Point(12, 390);
+            this.LBLNetworkInfo.Location = new System.Drawing.Point(12, 387);
             this.LBLNetworkInfo.Name = "LBLNetworkInfo";
             this.LBLNetworkInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLNetworkInfo.TabIndex = 21;
@@ -162,7 +162,7 @@
             // 
             this.RTBNetworkInfo.BackColor = System.Drawing.Color.White;
             this.RTBNetworkInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBNetworkInfo.Location = new System.Drawing.Point(12, 416);
+            this.RTBNetworkInfo.Location = new System.Drawing.Point(12, 413);
             this.RTBNetworkInfo.Name = "RTBNetworkInfo";
             this.RTBNetworkInfo.Size = new System.Drawing.Size(352, 131);
             this.RTBNetworkInfo.TabIndex = 20;
@@ -172,15 +172,16 @@
             // 
             this.RTBGPUInfo.BackColor = System.Drawing.Color.White;
             this.RTBGPUInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RTBGPUInfo.Location = new System.Drawing.Point(12, 576);
+            this.RTBGPUInfo.Location = new System.Drawing.Point(12, 573);
             this.RTBGPUInfo.Name = "RTBGPUInfo";
-            this.RTBGPUInfo.Size = new System.Drawing.Size(352, 73);
+            this.RTBGPUInfo.Size = new System.Drawing.Size(352, 100);
             this.RTBGPUInfo.TabIndex = 22;
-            this.RTBGPUInfo.Text = "Name: NA\nVideo Processor: NA\nDriver Version: NA\nDriverDate: NA";
+            this.RTBGPUInfo.Text = "Name: NA\nVideo Processor: NA\nDriver Version: NA\nDriverDate: NA\nLaptops:\nName: NA\n" +
+    "Driver Version: NA";
             // 
             // LBLGPUInfo
             // 
-            this.LBLGPUInfo.Location = new System.Drawing.Point(12, 550);
+            this.LBLGPUInfo.Location = new System.Drawing.Point(12, 547);
             this.LBLGPUInfo.Name = "LBLGPUInfo";
             this.LBLGPUInfo.Size = new System.Drawing.Size(139, 23);
             this.LBLGPUInfo.TabIndex = 23;
@@ -189,7 +190,7 @@
             // 
             // BTNClose
             // 
-            this.BTNClose.Location = new System.Drawing.Point(15, 655);
+            this.BTNClose.Location = new System.Drawing.Point(12, 679);
             this.BTNClose.Name = "BTNClose";
             this.BTNClose.Size = new System.Drawing.Size(75, 23);
             this.BTNClose.TabIndex = 24;
@@ -201,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 760);
+            this.ClientSize = new System.Drawing.Size(376, 773);
             this.Controls.Add(this.BTNClose);
             this.Controls.Add(this.LBLGPUInfo);
             this.Controls.Add(this.RTBGPUInfo);

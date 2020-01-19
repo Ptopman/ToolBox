@@ -110,12 +110,19 @@ namespace ToolBox
                 //Getting total memory of computer
                 totalMemory = Convert.ToInt64(share["TotalPhysicalMemory"]);
                 //Memory is get; by bytes so change it to mebabytes
-                totalMemory /= 1024;
-                totalMemory /= 1024;
+                totalMemory /= 1048576;
                 RTBWindowsInfo.AppendText(totalMemory.ToString());
                 String SystemManufacturer = "NA"; String SystemModel = "NA";
-                if(share["Manufacturer"] != null) { SystemManufacturer = share["Manufacturer"].ToString(); }
-                if(share["Model"] != null) { SystemModel = share["Model"].ToString(); }
+                //Check to see if manufacturer is null
+                if (share["Manufacturer"] != null) { SystemManufacturer = share["Manufacturer"].ToString(); }
+                else { SystemManufacturer = "NA"; }
+                //Check if Model is null
+                if (share["Model"] != null) { SystemModel = share["Model"].ToString(); }
+                else { SystemModel = "NA"; }
+                //if System is custom, the manufacturer and model will pull genaric system manufactuer and product name. This changes that.
+                if(SystemManufacturer == "System manufacturer") { SystemManufacturer = "Custom?"; }
+                if (SystemModel == "System Product Name") { SystemModel = ""; }
+                //Display system manufactuer and model
                 RTBCpuInfo.AppendText("\nModel: " + SystemManufacturer + " " + SystemModel);
             }
 
@@ -134,7 +141,7 @@ namespace ToolBox
                 //Getting system uptime and formatting it
                 UpTimeCounter.NextValue();
                 var time = TimeSpan.FromSeconds(UpTimeCounter.NextValue());
-                RTBWindowsInfo.AppendText("Last Boot: " + BootDt.ToString("MM-dd-yyy") + " UpTime: " + "Days: " + time.Days + " Hours: " + time.Hours + " Minutes: " + time.Minutes);
+                RTBWindowsInfo.AppendText("Last Boot: " + BootDt.ToString("MM-dd-yyy") + "\nUpTime: " + "Days: " + time.Days + " Hours: " + time.Hours + " Minutes: " + time.Minutes);
             }
 
             ManagementObjectSearcher GPUSearcher = new ManagementObjectSearcher("Select * From Win32_VideoController");
@@ -152,7 +159,12 @@ namespace ToolBox
             ManagementObjectSearcher DisplaySearcher = new ManagementObjectSearcher("Select * From Win32_DisplayConfiguration");
             foreach (ManagementObject share in DisplaySearcher.Get())
             {
+                RTBGPUInfo.AppendText("Laptops:\n");
                 RTBGPUInfo.AppendText("Display: " + share["DeviceName"].ToString() + "\n");
+                String LaptopDriverVersion = "NA";
+                if(share["DriverVersion"] != null) { LaptopDriverVersion = share["DriverVersion"].ToString(); }
+                else { LaptopDriverVersion = "NA"; }
+                RTBGPUInfo.AppendText("Driver Version: " + LaptopDriverVersion);
             }
 
                 foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
