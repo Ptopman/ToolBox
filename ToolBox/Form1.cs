@@ -305,11 +305,11 @@ namespace ToolBox
 
         //Open pannel for computer information
         private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
-        {
+        { 
             //Create new form2 () object
-            Form2 f2 = new Form2();
+            Form2 _f2 = new Form2();
             //Start and show the form
-            f2.Show();
+            _f2.Show();
         }
 
         //-----Methods-----

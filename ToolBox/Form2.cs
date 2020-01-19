@@ -20,7 +20,6 @@ namespace ToolBox
 
         public Form2()
         {
-            f3.Show();
             InitializeComponent();
         }
 
@@ -47,13 +46,19 @@ namespace ToolBox
 
         private void TickTock2(object sender, EventArgs e)
         {
-            //Collect garbage and free up some ram every 5 seconds
+            //Collect garbage and free up some ram every 10 seconds
             GC.Collect();
         }
 
         //On the form loading...
         private void Form2_Load(object sender, EventArgs e)
         {
+            f3.Show();
+            //Start windows in bottem right
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Rectangle workingArea = Screen.GetWorkingArea(this);
+            this.Location = new Point(workingArea.Right - Size.Width, workingArea.Bottom - Size.Height);
+
             //Making the Rich Text Boxes read only  
             RTBCpuInfo.ReadOnly = true;
             RTBMotherboard.ReadOnly = true;
@@ -108,6 +113,8 @@ namespace ToolBox
                 totalMemory /= 1024;
                 totalMemory /= 1024;
                 RTBWindowsInfo.AppendText(totalMemory.ToString());
+
+                RTBCpuInfo.AppendText("\nModel: " + share["Model"]);
             }
 
             ManagementObjectSearcher WindowsSearcher = new ManagementObjectSearcher("Select * From Win32_OperatingSystem");
@@ -126,6 +133,18 @@ namespace ToolBox
                 UpTimeCounter.NextValue();
                 var time = TimeSpan.FromSeconds(UpTimeCounter.NextValue());
                 RTBWindowsInfo.AppendText("Last Boot: " + BootDt.ToString("MM-dd-yyy") + " UpTime: " + "Days: " + time.Days + " Hours: " + time.Hours + " Minutes: " + time.Minutes);
+            }
+
+            ManagementObjectSearcher GPUSearcher = new ManagementObjectSearcher("Select * From Win32_VideoController");
+            foreach (ManagementObject share in GPUSearcher.Get())
+            {
+                //Pulling GPU Information
+                RTBGPUInfo.Text = "";
+                RTBGPUInfo.AppendText("Name: " + share["Name"].ToString() + "\n");
+                RTBGPUInfo.AppendText("Video Processor: " + share["VideoProcessor"].ToString() + "\n");
+                RTBGPUInfo.AppendText("Driver Version: " + share["DriverVersion"].ToString() + "\n");
+                DateTime GpuDvDt = ManagementDateTimeConverter.ToDateTime((string)share["DriverDate"]);
+                RTBGPUInfo.AppendText("Driver Date: " + GpuDvDt.ToString("MM-dd-yyy") + "\n");
             }
 
             foreach(NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
@@ -156,6 +175,12 @@ namespace ToolBox
                 }
             }
             f3.Close();
+        }
+
+        private void BTNClose_Click(object sender, EventArgs e)
+        {
+            GC.Collect();
+            this.Close();
         }
     }
 }

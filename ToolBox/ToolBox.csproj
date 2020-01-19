@@ -123,9 +123,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\check_n4O_icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\hiclipart_com_rCs_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
