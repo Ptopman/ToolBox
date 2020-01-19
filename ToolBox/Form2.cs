@@ -113,9 +113,10 @@ namespace ToolBox
                 totalMemory /= 1024;
                 totalMemory /= 1024;
                 RTBWindowsInfo.AppendText(totalMemory.ToString());
-
-                RTBCpuInfo.AppendText("\nModel: " + share["Model"]);
-                RTBCpuInfo.AppendText("\nManufacturer: " + share["Manufacturer"]);
+                String SystemManufacturer = "NA"; String SystemModel = "NA";
+                if(share["Manufacturer"] != null) { SystemManufacturer = share["Manufacturer"].ToString(); }
+                if(share["Model"] != null) { SystemModel = share["Model"].ToString(); }
+                RTBCpuInfo.AppendText("\nModel: " + SystemManufacturer + " " + SystemModel);
             }
 
             ManagementObjectSearcher WindowsSearcher = new ManagementObjectSearcher("Select * From Win32_OperatingSystem");
