@@ -16,10 +16,11 @@ namespace ToolBox
 {
     public partial class SystemInformaitonForm : Form
     {
-        Form3 f3 = new Form3();
+        LoadingForm f3;
 
-        public SystemInformaitonForm()
+        public SystemInformaitonForm(LoadingForm _f3)
         {
+            f3 = _f3;
             InitializeComponent();
         }
 
@@ -53,7 +54,7 @@ namespace ToolBox
         //On the form loading...
         private void Form2_Load(object sender, EventArgs e)
         {
-            f3.Show();
+            //f3.Show();
             LBLVersion.Text = Application.ProductVersion;
             //Start windows in bottem right
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

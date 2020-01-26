@@ -77,8 +77,10 @@ namespace ToolBox
         //Open pannel for computer information
         private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
         {
+            LoadingForm f3 = new LoadingForm();
+            f3.Show();
             //Create new form2 () object
-            SystemInformaitonForm SysInfoForm = new SystemInformaitonForm();
+            SystemInformaitonForm SysInfoForm = new SystemInformaitonForm(f3);
             //Start and show the form
             SysInfoForm.Show();
         }

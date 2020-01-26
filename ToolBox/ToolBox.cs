@@ -20,6 +20,13 @@ namespace ToolBox
             InitializeComponent();
         }
 
+        //Hide fourm icon on load
+        private void ToolBox_Load(object sender, EventArgs e)
+        {
+            LBLVersion.Text = Application.ProductVersion;
+            this.CenterToScreen();
+        }
+
         //-----Buttons-----
         //Open Classic sound control panel
         private void BTNCPSound_Click(object sender, EventArgs e)
@@ -233,12 +240,6 @@ namespace ToolBox
         private void BTNShutToolBox_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        //Hide fourm icon on load
-        private void ToolBox_Load(object sender, EventArgs e)
-        {
-            LBLVersion.Text = Application.ProductVersion;
         }
 
         //-----Methods-----

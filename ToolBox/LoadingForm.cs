@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ToolBox
 {
-    public partial class Form3 : Form
+    public partial class LoadingForm : Form
     {
-        public Form3()
+        public LoadingForm()
         {
             InitializeComponent();
         }
@@ -21,6 +21,11 @@ namespace ToolBox
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.Location = new Point(workingArea.Right - Size.Width, workingArea.Bottom - Size.Height);
+        }
+
+        private void LoadingForm_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.Black, 2), this.DisplayRectangle);
         }
     }
 }
