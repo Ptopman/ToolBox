@@ -14,13 +14,13 @@ using System.Net.NetworkInformation;
 
 namespace ToolBox
 {
-    public partial class Form2 : Form
+    public partial class SystemInformaitonForm : Form
     {
-        Form3 f3 = new Form3();
+        LoadingForm f3;
 
-        public Form2()
+        public SystemInformaitonForm(LoadingForm _f3)
         {
-            f3.Show();
+            f3 = _f3;
             InitializeComponent();
         }
 
@@ -29,7 +29,7 @@ namespace ToolBox
         //Performance Counter Objects for processor speed, Available memory, and the System uptime.
         PerformanceCounter CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         PerformanceCounter MemCounter = new PerformanceCounter("Memory", "Available MBytes");
-        PerformanceCounter UpTimeCounter = new PerformanceCounter("System","System Up Time");
+        PerformanceCounter UpTimeCounter = new PerformanceCounter("System", "System Up Time");
 
         //Using a timer to update CPU load %
         private void TickTock(object sender, EventArgs e)
@@ -42,18 +42,25 @@ namespace ToolBox
             CPU = Math.Round(CPU, 2);
             LBLCPULoad.Text = "CPULoad: " + CPU.ToString() + "%";
             //Getting current available memory amount and doing math to get how much is being used.
-            LBLMemoryAvailable.Text = "Memory Usage: " + (totalMemory - MemCounter.NextValue()) + "MB / " + totalMemory + "MB"; 
+            LBLMemoryAvailable.Text = "Memory Usage: " + (totalMemory - MemCounter.NextValue()) + "MB / " + totalMemory + "MB";
         }
 
         private void TickTock2(object sender, EventArgs e)
         {
-            //Collect garbage and free up some ram every 5 seconds
+            //Collect garbage and free up some ram every 10 seconds
             GC.Collect();
         }
 
         //On the form loading...
         private void Form2_Load(object sender, EventArgs e)
         {
+            //f3.Show();
+            LBLVersion.Text = Application.ProductVersion;
+            //Start windows in bottem right
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Rectangle workingArea = Screen.GetWorkingArea(this);
+            this.Location = new Point(workingArea.Right - Size.Width, workingArea.Bottom - Size.Height);
+
             //Making the Rich Text Boxes read only  
             RTBCpuInfo.ReadOnly = true;
             RTBMotherboard.ReadOnly = true;
@@ -105,9 +112,20 @@ namespace ToolBox
                 //Getting total memory of computer
                 totalMemory = Convert.ToInt64(share["TotalPhysicalMemory"]);
                 //Memory is get; by bytes so change it to mebabytes
-                totalMemory /= 1024;
-                totalMemory /= 1024;
+                totalMemory /= 1048576;
                 RTBWindowsInfo.AppendText(totalMemory.ToString());
+                String SystemManufacturer = "NA"; String SystemModel = "NA";
+                //Check to see if manufacturer is null
+                if (share["Manufacturer"] != null) { SystemManufacturer = share["Manufacturer"].ToString(); }
+                else { SystemManufacturer = "NA"; }
+                //Check if Model is null
+                if (share["Model"] != null) { SystemModel = share["Model"].ToString(); }
+                else { SystemModel = "NA"; }
+                //if System is custom, the manufacturer and model will pull genaric system manufactuer and product name. This changes that.
+                if (SystemManufacturer == "System manufacturer") { SystemManufacturer = "Custom?"; }
+                if (SystemModel == "System Product Name") { SystemModel = ""; }
+                //Display system manufactuer and model
+                RTBCpuInfo.AppendText("\nModel: " + SystemManufacturer + " " + SystemModel);
             }
 
             ManagementObjectSearcher WindowsSearcher = new ManagementObjectSearcher("Select * From Win32_OperatingSystem");
@@ -125,24 +143,58 @@ namespace ToolBox
                 //Getting system uptime and formatting it
                 UpTimeCounter.NextValue();
                 var time = TimeSpan.FromSeconds(UpTimeCounter.NextValue());
-                RTBWindowsInfo.AppendText("Last Boot: " + BootDt.ToString("MM-dd-yyy") + " UpTime: " + "Days: " + time.Days + " Hours: " + time.Hours + " Minutes: " + time.Minutes);
+                RTBWindowsInfo.AppendText("Last Boot: " + BootDt.ToString("MM-dd-yyy") + "\nUpTime: " + "Days: " + time.Days + " Hours: " + time.Hours + " Minutes: " + time.Minutes);
             }
 
-            foreach(NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            ManagementObjectSearcher GPUSearcher = new ManagementObjectSearcher("Select * From Win32_VideoController");
+            foreach (ManagementObject share in GPUSearcher.Get())
             {
+                //Pulling GPU Information
+                RTBGPUInfo.Text = "";
+                RTBGPUInfo.AppendText("Name: " + share["Name"].ToString() + "\n");
+                RTBGPUInfo.AppendText("Video Processor: " + share["VideoProcessor"].ToString() + "\n");
+                RTBGPUInfo.AppendText("Driver Version: " + share["DriverVersion"].ToString() + "\n");
+                DateTime GpuDvDt = ManagementDateTimeConverter.ToDateTime((string)share["DriverDate"]);
+                RTBGPUInfo.AppendText("Driver Date: " + GpuDvDt.ToString("MM-dd-yyy") + "\n");
+            }
+
+            ManagementObjectSearcher DisplaySearcher = new ManagementObjectSearcher("Select * From Win32_DisplayConfiguration");
+            foreach (ManagementObject share in DisplaySearcher.Get())
+            {
+                RTBGPUInfo.AppendText("Laptops:\n");
+                RTBGPUInfo.AppendText("Display: " + share["DeviceName"].ToString() + "\n");
+                String LaptopDriverVersion = "NA";
+                if (share["DriverVersion"] != null) { LaptopDriverVersion = share["DriverVersion"].ToString(); }
+                else { LaptopDriverVersion = "NA"; }
+                RTBGPUInfo.AppendText("Driver Version: " + LaptopDriverVersion);
+            }
+
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+
                 //Pull all network interfaces with a status of Up
-                if(ni.OperationalStatus == OperationalStatus.Up)
+                if (ni.OperationalStatus == OperationalStatus.Up)
                 {
+
                     //Pull the discription of the NIC and speed, formatt speed to Mbps
-                    RTBNetworkInfo.AppendText(ni.Description.ToString() + " = " + (ni.Speed / 1000000).ToString() + "Mbps = ");
+                    RTBNetworkInfo.AppendText(ni.Description.ToString() + "\n     " + (ni.Speed / 1000000).ToString() + "Mbps = ");
                     foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
                     {
                         //Getting the IPV4 address of the current NIC
-                        if(ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                         {
-                            RTBNetworkInfo.AppendText(ip.Address.ToString());
+                            RTBNetworkInfo.AppendText("IP:" + ip.Address.ToString());
+                            RTBNetworkInfo.AppendText(" --- MASK: " + ip.IPv4Mask.ToString());
                         }
                     }
+
+                    IPInterfaceProperties adapterproperties = ni.GetIPProperties();
+                    GatewayIPAddressInformationCollection addresses = adapterproperties.GatewayAddresses;
+                    foreach (GatewayIPAddressInformation address in addresses)
+                    {
+                        RTBNetworkInfo.AppendText(" --- GW:" + address.Address.ToString());
+                    }
+
                     RTBNetworkInfo.AppendText("\n");
                 }
             }
@@ -156,6 +208,12 @@ namespace ToolBox
                 }
             }
             f3.Close();
+        }
+
+        private void BTNClose_Click(object sender, EventArgs e)
+        {
+            GC.Collect();
+            this.Close();
         }
     }
 }
