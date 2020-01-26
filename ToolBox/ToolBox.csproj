@@ -82,6 +82,7 @@
     <Compile Include="MenuStrip.Designer.cs">
       <DependentUpon>MenuStrip.cs</DependentUpon>
     </Compile>
+    <Compile Include="RestartShutdown.cs" />
     <Compile Include="SystemInformaitonForm.cs">
       <SubType>Form</SubType>
     </Compile>
