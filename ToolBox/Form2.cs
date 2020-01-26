@@ -28,7 +28,7 @@ namespace ToolBox
         //Performance Counter Objects for processor speed, Available memory, and the System uptime.
         PerformanceCounter CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         PerformanceCounter MemCounter = new PerformanceCounter("Memory", "Available MBytes");
-        PerformanceCounter UpTimeCounter = new PerformanceCounter("System","System Up Time");
+        PerformanceCounter UpTimeCounter = new PerformanceCounter("System", "System Up Time");
 
         //Using a timer to update CPU load %
         private void TickTock(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace ToolBox
             CPU = Math.Round(CPU, 2);
             LBLCPULoad.Text = "CPULoad: " + CPU.ToString() + "%";
             //Getting current available memory amount and doing math to get how much is being used.
-            LBLMemoryAvailable.Text = "Memory Usage: " + (totalMemory - MemCounter.NextValue()) + "MB / " + totalMemory + "MB"; 
+            LBLMemoryAvailable.Text = "Memory Usage: " + (totalMemory - MemCounter.NextValue()) + "MB / " + totalMemory + "MB";
         }
 
         private void TickTock2(object sender, EventArgs e)
@@ -54,6 +54,7 @@ namespace ToolBox
         private void Form2_Load(object sender, EventArgs e)
         {
             f3.Show();
+            LBLVersion.Text = Application.ProductVersion;
             //Start windows in bottem right
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Rectangle workingArea = Screen.GetWorkingArea(this);
@@ -120,7 +121,7 @@ namespace ToolBox
                 if (share["Model"] != null) { SystemModel = share["Model"].ToString(); }
                 else { SystemModel = "NA"; }
                 //if System is custom, the manufacturer and model will pull genaric system manufactuer and product name. This changes that.
-                if(SystemManufacturer == "System manufacturer") { SystemManufacturer = "Custom?"; }
+                if (SystemManufacturer == "System manufacturer") { SystemManufacturer = "Custom?"; }
                 if (SystemModel == "System Product Name") { SystemModel = ""; }
                 //Display system manufactuer and model
                 RTBCpuInfo.AppendText("\nModel: " + SystemManufacturer + " " + SystemModel);
@@ -162,26 +163,37 @@ namespace ToolBox
                 RTBGPUInfo.AppendText("Laptops:\n");
                 RTBGPUInfo.AppendText("Display: " + share["DeviceName"].ToString() + "\n");
                 String LaptopDriverVersion = "NA";
-                if(share["DriverVersion"] != null) { LaptopDriverVersion = share["DriverVersion"].ToString(); }
+                if (share["DriverVersion"] != null) { LaptopDriverVersion = share["DriverVersion"].ToString(); }
                 else { LaptopDriverVersion = "NA"; }
                 RTBGPUInfo.AppendText("Driver Version: " + LaptopDriverVersion);
             }
 
-                foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
+
                 //Pull all network interfaces with a status of Up
-                if(ni.OperationalStatus == OperationalStatus.Up)
+                if (ni.OperationalStatus == OperationalStatus.Up)
                 {
+
                     //Pull the discription of the NIC and speed, formatt speed to Mbps
-                    RTBNetworkInfo.AppendText(ni.Description.ToString() + " = " + (ni.Speed / 1000000).ToString() + "Mbps = ");
+                    RTBNetworkInfo.AppendText(ni.Description.ToString() + "\n     " + (ni.Speed / 1000000).ToString() + "Mbps = ");
                     foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
                     {
                         //Getting the IPV4 address of the current NIC
-                        if(ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                         {
-                            RTBNetworkInfo.AppendText(ip.Address.ToString());
+                            RTBNetworkInfo.AppendText("IP:" + ip.Address.ToString());
+                            RTBNetworkInfo.AppendText(" --- MASK: " + ip.IPv4Mask.ToString());
                         }
                     }
+
+                    IPInterfaceProperties adapterproperties = ni.GetIPProperties();
+                    GatewayIPAddressInformationCollection addresses = adapterproperties.GatewayAddresses;
+                    foreach (GatewayIPAddressInformation address in addresses)
+                    {
+                        RTBNetworkInfo.AppendText(" --- GW:" + address.Address.ToString());
+                    }
+
                     RTBNetworkInfo.AppendText("\n");
                 }
             }

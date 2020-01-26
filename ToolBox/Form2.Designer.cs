@@ -46,13 +46,14 @@
             this.RTBGPUInfo = new System.Windows.Forms.RichTextBox();
             this.LBLGPUInfo = new System.Windows.Forms.Label();
             this.BTNClose = new System.Windows.Forms.Button();
+            this.LBLVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LBLCpuInfo
             // 
             this.LBLCpuInfo.Location = new System.Drawing.Point(12, 55);
             this.LBLCpuInfo.Name = "LBLCpuInfo";
-            this.LBLCpuInfo.Size = new System.Drawing.Size(352, 23);
+            this.LBLCpuInfo.Size = new System.Drawing.Size(391, 23);
             this.LBLCpuInfo.TabIndex = 3;
             this.LBLCpuInfo.Text = "CPU Information:";
             this.LBLCpuInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -63,7 +64,7 @@
             this.RTBCpuInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTBCpuInfo.Location = new System.Drawing.Point(12, 81);
             this.RTBCpuInfo.Name = "RTBCpuInfo";
-            this.RTBCpuInfo.Size = new System.Drawing.Size(352, 86);
+            this.RTBCpuInfo.Size = new System.Drawing.Size(391, 86);
             this.RTBCpuInfo.TabIndex = 12;
             this.RTBCpuInfo.Text = "Name: NA\nNumberOfCores: NA\nNumberOfLogicalProcessors: NA\nStatus: NA\nSystemName: N" +
     "A\nModel: NA";
@@ -74,7 +75,7 @@
             this.RTBMotherboard.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTBMotherboard.Location = new System.Drawing.Point(12, 196);
             this.RTBMotherboard.Name = "RTBMotherboard";
-            this.RTBMotherboard.Size = new System.Drawing.Size(352, 73);
+            this.RTBMotherboard.Size = new System.Drawing.Size(391, 73);
             this.RTBMotherboard.TabIndex = 13;
             this.RTBMotherboard.Text = "Manufacturer: NA\nProduct: NA\nSerialNumber: NA\nBIOS Version: NA\nBIOS Release Date:" +
     " NA";
@@ -85,7 +86,7 @@
             this.RTBWindowsInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTBWindowsInfo.Location = new System.Drawing.Point(12, 298);
             this.RTBWindowsInfo.Name = "RTBWindowsInfo";
-            this.RTBWindowsInfo.Size = new System.Drawing.Size(352, 86);
+            this.RTBWindowsInfo.Size = new System.Drawing.Size(391, 86);
             this.RTBWindowsInfo.TabIndex = 14;
             this.RTBWindowsInfo.Text = "Windows Edition: NA\nWindows Architecture: NA\nBuild Number: NA\nInstall Date: NA\nLa" +
     "st Boot Up: NA\nSystem Uptime: NA";
@@ -103,7 +104,7 @@
             // 
             this.LBLCPULoad.Location = new System.Drawing.Point(12, 9);
             this.LBLCPULoad.Name = "LBLCPULoad";
-            this.LBLCPULoad.Size = new System.Drawing.Size(352, 23);
+            this.LBLCPULoad.Size = new System.Drawing.Size(391, 23);
             this.LBLCPULoad.TabIndex = 16;
             this.LBLCPULoad.Text = "CPULoad:";
             this.LBLCPULoad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -119,7 +120,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(35, 713);
+            this.label2.Location = new System.Drawing.Point(77, 716);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(302, 48);
             this.label2.TabIndex = 17;
@@ -130,7 +131,7 @@
             // 
             this.LBLMemoryAvailable.Location = new System.Drawing.Point(12, 32);
             this.LBLMemoryAvailable.Name = "LBLMemoryAvailable";
-            this.LBLMemoryAvailable.Size = new System.Drawing.Size(352, 23);
+            this.LBLMemoryAvailable.Size = new System.Drawing.Size(391, 23);
             this.LBLMemoryAvailable.TabIndex = 18;
             this.LBLMemoryAvailable.Text = "Memory Usage:";
             this.LBLMemoryAvailable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,7 +165,7 @@
             this.RTBNetworkInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTBNetworkInfo.Location = new System.Drawing.Point(12, 413);
             this.RTBNetworkInfo.Name = "RTBNetworkInfo";
-            this.RTBNetworkInfo.Size = new System.Drawing.Size(352, 131);
+            this.RTBNetworkInfo.Size = new System.Drawing.Size(391, 131);
             this.RTBNetworkInfo.TabIndex = 20;
             this.RTBNetworkInfo.Text = "";
             // 
@@ -174,7 +175,7 @@
             this.RTBGPUInfo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTBGPUInfo.Location = new System.Drawing.Point(12, 573);
             this.RTBGPUInfo.Name = "RTBGPUInfo";
-            this.RTBGPUInfo.Size = new System.Drawing.Size(352, 100);
+            this.RTBGPUInfo.Size = new System.Drawing.Size(391, 100);
             this.RTBGPUInfo.TabIndex = 22;
             this.RTBGPUInfo.Text = "Name: NA\nVideo Processor: NA\nDriver Version: NA\nDriverDate: NA\nLaptops:\nName: NA\n" +
     "Driver Version: NA";
@@ -198,11 +199,21 @@
             this.BTNClose.UseVisualStyleBackColor = true;
             this.BTNClose.Click += new System.EventHandler(this.BTNClose_Click);
             // 
+            // LBLVersion
+            // 
+            this.LBLVersion.AutoSize = true;
+            this.LBLVersion.Location = new System.Drawing.Point(12, 751);
+            this.LBLVersion.Name = "LBLVersion";
+            this.LBLVersion.Size = new System.Drawing.Size(35, 13);
+            this.LBLVersion.TabIndex = 25;
+            this.LBLVersion.Text = "label1";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 773);
+            this.ClientSize = new System.Drawing.Size(415, 773);
+            this.Controls.Add(this.LBLVersion);
             this.Controls.Add(this.BTNClose);
             this.Controls.Add(this.LBLGPUInfo);
             this.Controls.Add(this.RTBGPUInfo);
@@ -244,5 +255,6 @@
         private System.Windows.Forms.RichTextBox RTBGPUInfo;
         private System.Windows.Forms.Label LBLGPUInfo;
         private System.Windows.Forms.Button BTNClose;
+        private System.Windows.Forms.Label LBLVersion;
     }
 }

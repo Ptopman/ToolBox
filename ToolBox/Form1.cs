@@ -236,6 +236,7 @@ namespace ToolBox
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Hide();
+            LBLVersion.Text = Application.ProductVersion;
         }
 
         //When user presses the windows fourm exit button, it minimizes it instead of closing the application
