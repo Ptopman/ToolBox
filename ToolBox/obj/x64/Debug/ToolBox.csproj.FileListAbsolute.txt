@@ -2,11 +2,12 @@ C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.exe
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.exe
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\bin\x64\Debug\ToolBox.pdb
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csprojAssemblyReference.cache
-C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.Form1.resources
-C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.Form2.resources
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.Properties.Resources.resources
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.GenerateResource.cache
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.CoreCompileInputs.cache
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.exe
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.pdb
 C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.Form3.resources
+C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.SystemInformaitonForm.resources
+C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.ToolBox.resources
+C:\Users\Quantum.000\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.MenuStrip.resources

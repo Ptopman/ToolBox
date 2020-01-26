@@ -14,11 +14,11 @@ using System.Net.NetworkInformation;
 
 namespace ToolBox
 {
-    public partial class Form2 : Form
+    public partial class SystemInformaitonForm : Form
     {
         Form3 f3 = new Form3();
 
-        public Form2()
+        public SystemInformaitonForm()
         {
             InitializeComponent();
         }

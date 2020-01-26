@@ -1,6 +1,6 @@
 ﻿namespace ToolBox
 {
-    partial class Form2
+    partial class SystemInformaitonForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SystemInformaitonForm));
             this.LBLCpuInfo = new System.Windows.Forms.Label();
             this.RTBCpuInfo = new System.Windows.Forms.RichTextBox();
             this.RTBMotherboard = new System.Windows.Forms.RichTextBox();
@@ -204,9 +204,9 @@
             this.LBLVersion.AutoSize = true;
             this.LBLVersion.Location = new System.Drawing.Point(12, 751);
             this.LBLVersion.Name = "LBLVersion";
-            this.LBLVersion.Size = new System.Drawing.Size(35, 13);
+            this.LBLVersion.Size = new System.Drawing.Size(40, 13);
             this.LBLVersion.TabIndex = 25;
-            this.LBLVersion.Text = "label1";
+            this.LBLVersion.Text = "0.0.0.0";
             // 
             // Form2
             // 
