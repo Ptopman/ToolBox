@@ -35,6 +35,7 @@ namespace ToolBox
                 //Add buttons to the context menu
                 this.NIToolBox.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
                 this.NIToolBox.ContextMenuStrip.Items.Add("Open ToolBox", null, this.IconOpenToolBox_click);
+                this.NIToolBox.ContextMenuStrip.Items.Add("Open System Info", null, this.IconOpenSystemSpecs_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add("Task Manager", null, this.IconOpenTask_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add(new ToolStripSeparator());
                 this.NIToolBox.ContextMenuStrip.Items.Add("Close ToolBox", null, this.IconExitToolbox_click).ForeColor = Color.Red;
@@ -78,7 +79,7 @@ namespace ToolBox
         }
 
         //Open pannel for computer information
-        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
+        void IconOpenSystemSpecs_click(object sender, EventArgs e)
         {
             LoadingForm f3 = new LoadingForm();
             f3.Show();
@@ -87,5 +88,19 @@ namespace ToolBox
             //Start and show the form
             SysInfoForm.Show();
         }
+
+        
+        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            /*
+            LoadingForm f3 = new LoadingForm();
+            f3.Show();
+            //Create new form2 () object
+            SystemInformaitonForm SysInfoForm = new SystemInformaitonForm(f3);
+            //Start and show the form
+            SysInfoForm.Show();
+            */
+        }
+        
     }
 }
