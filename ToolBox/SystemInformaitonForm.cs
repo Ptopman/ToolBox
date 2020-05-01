@@ -216,5 +216,10 @@ namespace ToolBox
             GC.Collect();
             this.Close();
         }
+
+        private void LBLMemoryAvailable_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

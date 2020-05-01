@@ -173,7 +173,9 @@ namespace ToolBox
         //Open Remote desktop
         private void BTNRDP_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("mstsc.exe");
+            RemoteDesktopSelection RDPS = new RemoteDesktopSelection();
+            RDPS.Show();
+            //System.Diagnostics.Process.Start("mstsc.exe");
         }
 
         //Open Keybaord settings

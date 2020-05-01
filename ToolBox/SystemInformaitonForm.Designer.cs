@@ -37,7 +37,6 @@
             this.LBLMotherboardInfo = new System.Windows.Forms.Label();
             this.LBLCPULoad = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.LBLMemoryAvailable = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.LBLWindowsInfo = new System.Windows.Forms.Label();
@@ -114,19 +113,6 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.TickTock);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Control;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(77, 716);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(302, 48);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "This Screen is under construction, \r\nMay be unstable";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // LBLMemoryAvailable
             // 
             this.LBLMemoryAvailable.Location = new System.Drawing.Point(12, 32);
@@ -135,6 +121,7 @@
             this.LBLMemoryAvailable.TabIndex = 18;
             this.LBLMemoryAvailable.Text = "Memory Usage:";
             this.LBLMemoryAvailable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LBLMemoryAvailable.Click += new System.EventHandler(this.LBLMemoryAvailable_Click);
             // 
             // timer2
             // 
@@ -202,17 +189,17 @@
             // LBLVersion
             // 
             this.LBLVersion.AutoSize = true;
-            this.LBLVersion.Location = new System.Drawing.Point(12, 751);
+            this.LBLVersion.Location = new System.Drawing.Point(9, 716);
             this.LBLVersion.Name = "LBLVersion";
             this.LBLVersion.Size = new System.Drawing.Size(40, 13);
             this.LBLVersion.TabIndex = 25;
             this.LBLVersion.Text = "0.0.0.0";
             // 
-            // Form2
+            // SystemInformaitonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 773);
+            this.ClientSize = new System.Drawing.Size(415, 738);
             this.Controls.Add(this.LBLVersion);
             this.Controls.Add(this.BTNClose);
             this.Controls.Add(this.LBLGPUInfo);
@@ -221,7 +208,6 @@
             this.Controls.Add(this.RTBNetworkInfo);
             this.Controls.Add(this.LBLWindowsInfo);
             this.Controls.Add(this.LBLMemoryAvailable);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.LBLCPULoad);
             this.Controls.Add(this.LBLMotherboardInfo);
             this.Controls.Add(this.RTBWindowsInfo);
@@ -229,7 +215,7 @@
             this.Controls.Add(this.RTBCpuInfo);
             this.Controls.Add(this.LBLCpuInfo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
+            this.Name = "SystemInformaitonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "System Stats";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -246,7 +232,6 @@
         private System.Windows.Forms.Label LBLMotherboardInfo;
         private System.Windows.Forms.Label LBLCPULoad;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LBLMemoryAvailable;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label LBLWindowsInfo;
