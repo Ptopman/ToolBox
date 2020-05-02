@@ -20,9 +20,22 @@ namespace ToolBox
 
         private void RemoteDesktopSelection_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.Path == "NA")
+            {
+                MessageBox.Show("Please set path for RDP list in settings", "RDP File Error");
+            }
+            LoadList();
+        }
+
+        private void LoadList()
+        {
+            //var path = Path.Combine("C:\\Users" , Environment.UserName , "Documents\\ToolBox\\RDPList.txt");
+            LBRDPcomputers.Items.Clear();
             try
             {
-                using (StreamReader sr = new StreamReader("RDPList.txt"))
+                //textBox1.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                //using (StreamReader sr = new StreamReader(path))
+                using (StreamReader sr = new StreamReader(Properties.Settings.Default.Path))
                 {
                     while (!sr.EndOfStream)
                     {
@@ -33,8 +46,10 @@ namespace ToolBox
                     sr.Close();
                 }
             }
-            catch { }
-            CBRDPcloseOnOpen.Checked = Properties.Settings.Default.RDPClose;
+            catch
+            {
+
+            }
         }
 
         private void BTNRDPconnect_Click(object sender, EventArgs e)
@@ -54,7 +69,7 @@ namespace ToolBox
             process.Start();
             process.Dispose();
 
-            if (CBRDPcloseOnOpen.Checked)
+            if (Properties.Settings.Default.RDPClose == true)
             {
                 this.Close();
             }
@@ -67,9 +82,17 @@ namespace ToolBox
             {
                 TBRDPdescription.Text = "NA";
             }
-            LBRDPcomputers.Items.Add(TBRDPdescription.Text + "- " + TBRDPip.Text);
-            TBRDPip.Text = "";
-            TBRDPdescription.Text = "";
+            if(TBRDPip.Text != "")
+            {
+                LBRDPcomputers.Items.Add(TBRDPdescription.Text + " - " + TBRDPip.Text);
+                TBRDPip.Text = "";
+                TBRDPdescription.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("IP address empty!", "Error");
+            }
+            
         }
 
         private void BTNRDPremove_Click(object sender, EventArgs e)
@@ -81,7 +104,8 @@ namespace ToolBox
         {
             try
             {
-                StreamWriter SaveFile = new StreamWriter("RDPList.txt");
+                var path = Path.Combine("C:\\Users", Environment.UserName, "Documents\\ToolBox\\RDPList.txt");
+                StreamWriter SaveFile = new StreamWriter(path);
                 foreach (var item in LBRDPcomputers.Items)
                 {
                     SaveFile.WriteLine(item.ToString());
@@ -95,17 +119,11 @@ namespace ToolBox
             
         }
 
-        private void CBRDPcloseOnOpen_CheckedChanged(object sender, EventArgs e)
+        private void BTNRDPsettings_Click(object sender, EventArgs e)
         {
-            if(CBRDPcloseOnOpen.Checked)
-            {
-                Properties.Settings.Default.RDPClose = true;
-            }
-            else
-            {
-                Properties.Settings.Default.RDPClose = false;
-            }
-            Properties.Settings.Default.Save();
+            RDPsettings rdpsettings = new RDPsettings();
+            rdpsettings.ShowDialog();
+            LoadList();
         }
     }
 }

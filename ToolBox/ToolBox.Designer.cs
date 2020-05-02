@@ -416,6 +416,7 @@
             this.Controls.Add(this.BTNCPSound);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ToolBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ToolBox";
             this.Load += new System.EventHandler(this.ToolBox_Load);
             this.groupBox1.ResumeLayout(false);

@@ -37,6 +37,7 @@ namespace ToolBox
                 this.NIToolBox.ContextMenuStrip.Items.Add("Open ToolBox", null, this.IconOpenToolBox_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add("Open System Info", null, this.IconOpenSystemSpecs_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add("Task Manager", null, this.IconOpenTask_click);
+                this.NIToolBox.ContextMenuStrip.Items.Add("RDP", null, this.IconOpenRDP_click);
                 this.NIToolBox.ContextMenuStrip.Items.Add(new ToolStripSeparator());
                 this.NIToolBox.ContextMenuStrip.Items.Add("Close ToolBox", null, this.IconExitToolbox_click).ForeColor = Color.Red;
                 this.NIToolBox.ContextMenuStrip.Items.Add("Restart", null, this.IconRestart_click).ForeColor = Color.Red;
@@ -101,6 +102,13 @@ namespace ToolBox
             SysInfoForm.Show();
             */
         }
-        
+
+        private void IconOpenRDP_click(object sender, EventArgs e)
+        {
+            RemoteDesktopSelection rdp = new RemoteDesktopSelection();
+            rdp.Show();
+        }
+
+
     }
 }
