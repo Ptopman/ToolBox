@@ -28,3 +28,5 @@ C:\Users\Quantum\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.pdb
 C:\Users\Quantum\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.RDPsettings.resources
 C:\Users\Quantum\Documents\GitRepo\ToolBox\ToolBox\bin\x64\Debug\DarkUI.dll
 C:\Users\Quantum\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.csproj.CopyComplete
+C:\Users\Quantum\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.ToolBoxSettings.resources
+C:\Users\Quantum\Documents\GitRepo\ToolBox\ToolBox\obj\x64\Debug\ToolBox.ToolBoxSettingsHelp.resources

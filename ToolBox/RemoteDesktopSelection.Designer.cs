@@ -123,7 +123,7 @@
             // 
             // BTNRDPsettings
             // 
-            this.BTNRDPsettings.BackColor = System.Drawing.SystemColors.Control;
+            this.BTNRDPsettings.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTNRDPsettings.Location = new System.Drawing.Point(101, 200);
             this.BTNRDPsettings.Name = "BTNRDPsettings";
             this.BTNRDPsettings.Size = new System.Drawing.Size(75, 23);
@@ -147,6 +147,7 @@
             this.Controls.Add(this.BTNRDPadd);
             this.Controls.Add(this.LBRDPcomputers);
             this.Controls.Add(this.BTNRDPconnect);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RemoteDesktopSelection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

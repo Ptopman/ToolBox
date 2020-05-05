@@ -15,7 +15,10 @@ namespace ToolBox
         public RDPsettings()
         {
             InitializeComponent();
-            TBRDPsettingsFilePath.Text = Properties.Settings.Default.Path;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            TBRDPsettingsFilePath.Text = Properties.Settings.Default.RDPSettingsPath;
             CBRDPcloseOnOpen.Checked = Properties.Settings.Default.RDPClose;
         }
 
@@ -33,7 +36,7 @@ namespace ToolBox
         private void BTNRDPsettingsSaveClose_Click(object sender, EventArgs e)
         {
             Check();
-            Properties.Settings.Default.Path = TBRDPsettingsFilePath.Text;
+            Properties.Settings.Default.RDPSettingsPath = TBRDPsettingsFilePath.Text;
             Properties.Settings.Default.Save();
             this.Close();
         }

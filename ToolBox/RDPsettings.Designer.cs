@@ -98,6 +98,7 @@
             this.Controls.Add(this.BTNRDPsettingsSaveClose);
             this.Controls.Add(this.TBRDPsettingsFilePath);
             this.Controls.Add(this.BTNRDPsettingsFileSelection);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RDPsettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

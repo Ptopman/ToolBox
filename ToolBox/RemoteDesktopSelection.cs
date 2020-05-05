@@ -16,11 +16,14 @@ namespace ToolBox
         public RemoteDesktopSelection()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void RemoteDesktopSelection_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Path == "NA")
+            if (Properties.Settings.Default.RDPSettingsPath == "NA")
             {
                 MessageBox.Show("Please set path for RDP list in settings", "RDP File Error");
             }
@@ -29,13 +32,10 @@ namespace ToolBox
 
         private void LoadList()
         {
-            //var path = Path.Combine("C:\\Users" , Environment.UserName , "Documents\\ToolBox\\RDPList.txt");
             LBRDPcomputers.Items.Clear();
             try
             {
-                //textBox1.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                //using (StreamReader sr = new StreamReader(path))
-                using (StreamReader sr = new StreamReader(Properties.Settings.Default.Path))
+                using (StreamReader sr = new StreamReader(Properties.Settings.Default.RDPSettingsPath))
                 {
                     while (!sr.EndOfStream)
                     {
@@ -62,7 +62,7 @@ namespace ToolBox
             {
                 WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
                 FileName = "cmd.exe",
-                //This argument starts the Performance Reliability Monitor
+                //This argument starts Remote Desktop and passes the Ip
                 Arguments = "/C mstsc /v:" + ip
             };
             process.StartInfo = startInfo;
@@ -73,7 +73,6 @@ namespace ToolBox
             {
                 this.Close();
             }
-            //Console.WriteLine(ip);
         }
 
         private void BTNRDPadd_Click(object sender, EventArgs e)

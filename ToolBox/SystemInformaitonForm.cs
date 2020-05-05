@@ -23,6 +23,9 @@ namespace ToolBox
         {
             f3 = _f3;
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private Int64 totalMemory = 0;
@@ -214,12 +217,8 @@ namespace ToolBox
         private void BTNClose_Click(object sender, EventArgs e)
         {
             GC.Collect();
+            Dispose();
             this.Close();
-        }
-
-        private void LBLMemoryAvailable_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

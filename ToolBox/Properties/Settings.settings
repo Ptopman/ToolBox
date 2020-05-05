@@ -5,10 +5,19 @@
     <Setting Name="RDPClose" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Path" Type="System.String" Scope="User">
+    <Setting Name="RDPSettingsPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">NA</Value>
     </Setting>
-    <Setting Name="DarkMode" Type="System.Boolean" Scope="User">
+    <Setting Name="NotepadPPPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Notepad++\notepad++.exe</Value>
+    </Setting>
+    <Setting Name="PuttyPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\PuTTY\putty.exe</Value>
+    </Setting>
+    <Setting Name="ShowRDPIcon" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowPuttyIcon" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

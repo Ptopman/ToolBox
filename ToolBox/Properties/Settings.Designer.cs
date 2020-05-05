@@ -38,24 +38,60 @@ namespace ToolBox.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("NA")]
-        public string Path {
+        public string RDPSettingsPath {
             get {
-                return ((string)(this["Path"]));
+                return ((string)(this["RDPSettingsPath"]));
             }
             set {
-                this["Path"] = value;
+                this["RDPSettingsPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Notepad++\\notepad++.exe")]
+        public string NotepadPPPath {
+            get {
+                return ((string)(this["NotepadPPPath"]));
+            }
+            set {
+                this["NotepadPPPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\PuTTY\\putty.exe")]
+        public string PuttyPath {
+            get {
+                return ((string)(this["PuttyPath"]));
+            }
+            set {
+                this["PuttyPath"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DarkMode {
+        public bool ShowRDPIcon {
             get {
-                return ((bool)(this["DarkMode"]));
+                return ((bool)(this["ShowRDPIcon"]));
             }
             set {
-                this["DarkMode"] = value;
+                this["ShowRDPIcon"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowPuttyIcon {
+            get {
+                return ((bool)(this["ShowPuttyIcon"]));
+            }
+            set {
+                this["ShowPuttyIcon"] = value;
             }
         }
     }

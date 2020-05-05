@@ -60,6 +60,7 @@
             this.BTNUninstall = new System.Windows.Forms.Button();
             this.BTNControl = new System.Windows.Forms.Button();
             this.BTNCPSound = new System.Windows.Forms.Button();
+            this.BTNTBSettings = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -312,6 +313,7 @@
             // 
             // BTNNotepadPP
             // 
+            this.BTNNotepadPP.Enabled = false;
             this.BTNNotepadPP.Location = new System.Drawing.Point(12, 331);
             this.BTNNotepadPP.Name = "BTNNotepadPP";
             this.BTNNotepadPP.Size = new System.Drawing.Size(218, 23);
@@ -381,11 +383,22 @@
             this.BTNCPSound.UseVisualStyleBackColor = true;
             this.BTNCPSound.Click += new System.EventHandler(this.BTNCPSound_Click);
             // 
+            // BTNTBSettings
+            // 
+            this.BTNTBSettings.Location = new System.Drawing.Point(411, 516);
+            this.BTNTBSettings.Name = "BTNTBSettings";
+            this.BTNTBSettings.Size = new System.Drawing.Size(75, 23);
+            this.BTNTBSettings.TabIndex = 63;
+            this.BTNTBSettings.Text = "Settings";
+            this.BTNTBSettings.UseVisualStyleBackColor = true;
+            this.BTNTBSettings.Click += new System.EventHandler(this.BTNTBSettings_Click);
+            // 
             // ToolBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 547);
+            this.Controls.Add(this.BTNTBSettings);
             this.Controls.Add(this.LBLVersion);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BTNW10Settings);
@@ -414,6 +427,7 @@
             this.Controls.Add(this.BTNUninstall);
             this.Controls.Add(this.BTNControl);
             this.Controls.Add(this.BTNCPSound);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ToolBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -458,5 +472,6 @@
         private System.Windows.Forms.Button BTNUninstall;
         private System.Windows.Forms.Button BTNControl;
         private System.Windows.Forms.Button BTNCPSound;
+        private System.Windows.Forms.Button BTNTBSettings;
     }
 }

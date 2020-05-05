@@ -121,7 +121,6 @@
             this.LBLMemoryAvailable.TabIndex = 18;
             this.LBLMemoryAvailable.Text = "Memory Usage:";
             this.LBLMemoryAvailable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LBLMemoryAvailable.Click += new System.EventHandler(this.LBLMemoryAvailable_Click);
             // 
             // timer2
             // 
@@ -214,6 +213,7 @@
             this.Controls.Add(this.RTBMotherboard);
             this.Controls.Add(this.RTBCpuInfo);
             this.Controls.Add(this.LBLCpuInfo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SystemInformaitonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
