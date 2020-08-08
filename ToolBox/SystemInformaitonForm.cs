@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Management;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
+using Microsoft.Win32;
 
 namespace ToolBox
 {
@@ -22,6 +23,9 @@ namespace ToolBox
         {
             f3 = _f3;
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private Int64 totalMemory = 0;
@@ -135,7 +139,7 @@ namespace ToolBox
                 RTBWindowsInfo.Text = "";
                 RTBWindowsInfo.AppendText("Windows Edition: " + share["Caption"].ToString() + "\n");
                 RTBWindowsInfo.AppendText("Windows Architecture: " + share["OSArchitecture"].ToString() + "\n");
-                RTBWindowsInfo.AppendText("BuildNumber: " + share["Version"].ToString() + " Build: " + share["BuildNumber"].ToString() + "\n");
+                RTBWindowsInfo.AppendText("BuildNumber: " + share["Version"].ToString() + " - Build: " + Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "").ToString() + "\n");
                 //Changing windows install date and last boot date to a readable format
                 DateTime IstDt = ManagementDateTimeConverter.ToDateTime((string)share["InstallDate"]);
                 DateTime BootDt = ManagementDateTimeConverter.ToDateTime((string)share["LastBootUpTime"]);
@@ -213,6 +217,7 @@ namespace ToolBox
         private void BTNClose_Click(object sender, EventArgs e)
         {
             GC.Collect();
+            Dispose();
             this.Close();
         }
     }

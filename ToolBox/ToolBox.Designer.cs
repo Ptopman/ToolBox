@@ -60,6 +60,7 @@
             this.BTNUninstall = new System.Windows.Forms.Button();
             this.BTNControl = new System.Windows.Forms.Button();
             this.BTNCPSound = new System.Windows.Forms.Button();
+            this.BTNTBSettings = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,7 +123,7 @@
             // 
             // BTNW10Settings
             // 
-            this.BTNW10Settings.Location = new System.Drawing.Point(12, 215);
+            this.BTNW10Settings.Location = new System.Drawing.Point(263, 186);
             this.BTNW10Settings.Name = "BTNW10Settings";
             this.BTNW10Settings.Size = new System.Drawing.Size(218, 23);
             this.BTNW10Settings.TabIndex = 60;
@@ -132,7 +133,7 @@
             // 
             // BTNDisplaySet
             // 
-            this.BTNDisplaySet.Location = new System.Drawing.Point(263, 331);
+            this.BTNDisplaySet.Location = new System.Drawing.Point(12, 157);
             this.BTNDisplaySet.Name = "BTNDisplaySet";
             this.BTNDisplaySet.Size = new System.Drawing.Size(218, 23);
             this.BTNDisplaySet.TabIndex = 59;
@@ -142,7 +143,7 @@
             // 
             // BTNosk
             // 
-            this.BTNosk.Location = new System.Drawing.Point(12, 157);
+            this.BTNosk.Location = new System.Drawing.Point(12, 360);
             this.BTNosk.Name = "BTNosk";
             this.BTNosk.Size = new System.Drawing.Size(218, 23);
             this.BTNosk.TabIndex = 58;
@@ -152,7 +153,7 @@
             // 
             // BTNMouse
             // 
-            this.BTNMouse.Location = new System.Drawing.Point(12, 186);
+            this.BTNMouse.Location = new System.Drawing.Point(12, 215);
             this.BTNMouse.Name = "BTNMouse";
             this.BTNMouse.Size = new System.Drawing.Size(218, 23);
             this.BTNMouse.TabIndex = 57;
@@ -162,7 +163,7 @@
             // 
             // BTNKeybaord
             // 
-            this.BTNKeybaord.Location = new System.Drawing.Point(12, 128);
+            this.BTNKeybaord.Location = new System.Drawing.Point(12, 186);
             this.BTNKeybaord.Name = "BTNKeybaord";
             this.BTNKeybaord.Size = new System.Drawing.Size(218, 23);
             this.BTNKeybaord.TabIndex = 56;
@@ -172,7 +173,7 @@
             // 
             // BTNServices
             // 
-            this.BTNServices.Location = new System.Drawing.Point(12, 70);
+            this.BTNServices.Location = new System.Drawing.Point(263, 157);
             this.BTNServices.Name = "BTNServices";
             this.BTNServices.Size = new System.Drawing.Size(218, 23);
             this.BTNServices.TabIndex = 55;
@@ -182,7 +183,7 @@
             // 
             // BTNRDP
             // 
-            this.BTNRDP.Location = new System.Drawing.Point(12, 99);
+            this.BTNRDP.Location = new System.Drawing.Point(263, 41);
             this.BTNRDP.Name = "BTNRDP";
             this.BTNRDP.Size = new System.Drawing.Size(218, 23);
             this.BTNRDP.TabIndex = 54;
@@ -192,7 +193,7 @@
             // 
             // BTNReliabilityMon
             // 
-            this.BTNReliabilityMon.Location = new System.Drawing.Point(12, 41);
+            this.BTNReliabilityMon.Location = new System.Drawing.Point(263, 99);
             this.BTNReliabilityMon.Name = "BTNReliabilityMon";
             this.BTNReliabilityMon.Size = new System.Drawing.Size(218, 23);
             this.BTNReliabilityMon.TabIndex = 53;
@@ -202,7 +203,7 @@
             // 
             // BTNMemDiag
             // 
-            this.BTNMemDiag.Location = new System.Drawing.Point(263, 244);
+            this.BTNMemDiag.Location = new System.Drawing.Point(263, 360);
             this.BTNMemDiag.Name = "BTNMemDiag";
             this.BTNMemDiag.Size = new System.Drawing.Size(218, 23);
             this.BTNMemDiag.TabIndex = 52;
@@ -212,7 +213,7 @@
             // 
             // BTNSysInfo
             // 
-            this.BTNSysInfo.Location = new System.Drawing.Point(263, 215);
+            this.BTNSysInfo.Location = new System.Drawing.Point(263, 273);
             this.BTNSysInfo.Name = "BTNSysInfo";
             this.BTNSysInfo.Size = new System.Drawing.Size(218, 23);
             this.BTNSysInfo.TabIndex = 51;
@@ -222,7 +223,7 @@
             // 
             // BTNSysConfig
             // 
-            this.BTNSysConfig.Location = new System.Drawing.Point(263, 186);
+            this.BTNSysConfig.Location = new System.Drawing.Point(263, 244);
             this.BTNSysConfig.Name = "BTNSysConfig";
             this.BTNSysConfig.Size = new System.Drawing.Size(218, 23);
             this.BTNSysConfig.TabIndex = 50;
@@ -232,7 +233,7 @@
             // 
             // BTNPerfMon
             // 
-            this.BTNPerfMon.Location = new System.Drawing.Point(263, 128);
+            this.BTNPerfMon.Location = new System.Drawing.Point(263, 12);
             this.BTNPerfMon.Name = "BTNPerfMon";
             this.BTNPerfMon.Size = new System.Drawing.Size(218, 23);
             this.BTNPerfMon.TabIndex = 49;
@@ -252,7 +253,7 @@
             // 
             // BTNRegedit
             // 
-            this.BTNRegedit.Location = new System.Drawing.Point(263, 360);
+            this.BTNRegedit.Location = new System.Drawing.Point(263, 70);
             this.BTNRegedit.Name = "BTNRegedit";
             this.BTNRegedit.Size = new System.Drawing.Size(218, 23);
             this.BTNRegedit.TabIndex = 47;
@@ -262,7 +263,7 @@
             // 
             // BTNDiskMan
             // 
-            this.BTNDiskMan.Location = new System.Drawing.Point(12, 360);
+            this.BTNDiskMan.Location = new System.Drawing.Point(12, 128);
             this.BTNDiskMan.Name = "BTNDiskMan";
             this.BTNDiskMan.Size = new System.Drawing.Size(218, 23);
             this.BTNDiskMan.TabIndex = 46;
@@ -272,7 +273,7 @@
             // 
             // BTNDeviceMan
             // 
-            this.BTNDeviceMan.Location = new System.Drawing.Point(12, 12);
+            this.BTNDeviceMan.Location = new System.Drawing.Point(12, 99);
             this.BTNDeviceMan.Name = "BTNDeviceMan";
             this.BTNDeviceMan.Size = new System.Drawing.Size(218, 23);
             this.BTNDeviceMan.TabIndex = 35;
@@ -282,7 +283,7 @@
             // 
             // BTNCmdAd
             // 
-            this.BTNCmdAd.Location = new System.Drawing.Point(263, 41);
+            this.BTNCmdAd.Location = new System.Drawing.Point(12, 41);
             this.BTNCmdAd.Name = "BTNCmdAd";
             this.BTNCmdAd.Size = new System.Drawing.Size(218, 23);
             this.BTNCmdAd.TabIndex = 44;
@@ -292,7 +293,7 @@
             // 
             // BTNCmd
             // 
-            this.BTNCmd.Location = new System.Drawing.Point(263, 12);
+            this.BTNCmd.Location = new System.Drawing.Point(12, 12);
             this.BTNCmd.Name = "BTNCmd";
             this.BTNCmd.Size = new System.Drawing.Size(218, 23);
             this.BTNCmd.TabIndex = 43;
@@ -302,7 +303,7 @@
             // 
             // BTNResMon
             // 
-            this.BTNResMon.Location = new System.Drawing.Point(263, 157);
+            this.BTNResMon.Location = new System.Drawing.Point(263, 128);
             this.BTNResMon.Name = "BTNResMon";
             this.BTNResMon.Size = new System.Drawing.Size(218, 23);
             this.BTNResMon.TabIndex = 42;
@@ -312,7 +313,8 @@
             // 
             // BTNNotepadPP
             // 
-            this.BTNNotepadPP.Location = new System.Drawing.Point(263, 99);
+            this.BTNNotepadPP.Enabled = false;
+            this.BTNNotepadPP.Location = new System.Drawing.Point(12, 331);
             this.BTNNotepadPP.Name = "BTNNotepadPP";
             this.BTNNotepadPP.Size = new System.Drawing.Size(218, 23);
             this.BTNNotepadPP.TabIndex = 41;
@@ -322,7 +324,7 @@
             // 
             // BTNNotepad
             // 
-            this.BTNNotepad.Location = new System.Drawing.Point(263, 70);
+            this.BTNNotepad.Location = new System.Drawing.Point(12, 302);
             this.BTNNotepad.Name = "BTNNotepad";
             this.BTNNotepad.Size = new System.Drawing.Size(218, 23);
             this.BTNNotepad.TabIndex = 40;
@@ -332,7 +334,7 @@
             // 
             // BTNNetAdap
             // 
-            this.BTNNetAdap.Location = new System.Drawing.Point(12, 331);
+            this.BTNNetAdap.Location = new System.Drawing.Point(12, 244);
             this.BTNNetAdap.Name = "BTNNetAdap";
             this.BTNNetAdap.Size = new System.Drawing.Size(218, 23);
             this.BTNNetAdap.TabIndex = 39;
@@ -342,7 +344,7 @@
             // 
             // BTNNetShareCent
             // 
-            this.BTNNetShareCent.Location = new System.Drawing.Point(12, 302);
+            this.BTNNetShareCent.Location = new System.Drawing.Point(12, 273);
             this.BTNNetShareCent.Name = "BTNNetShareCent";
             this.BTNNetShareCent.Size = new System.Drawing.Size(218, 23);
             this.BTNNetShareCent.TabIndex = 38;
@@ -352,7 +354,7 @@
             // 
             // BTNUninstall
             // 
-            this.BTNUninstall.Location = new System.Drawing.Point(263, 273);
+            this.BTNUninstall.Location = new System.Drawing.Point(263, 331);
             this.BTNUninstall.Name = "BTNUninstall";
             this.BTNUninstall.Size = new System.Drawing.Size(218, 23);
             this.BTNUninstall.TabIndex = 37;
@@ -362,7 +364,7 @@
             // 
             // BTNControl
             // 
-            this.BTNControl.Location = new System.Drawing.Point(12, 244);
+            this.BTNControl.Location = new System.Drawing.Point(12, 70);
             this.BTNControl.Name = "BTNControl";
             this.BTNControl.Size = new System.Drawing.Size(218, 23);
             this.BTNControl.TabIndex = 36;
@@ -372,7 +374,7 @@
             // 
             // BTNCPSound
             // 
-            this.BTNCPSound.Location = new System.Drawing.Point(12, 273);
+            this.BTNCPSound.Location = new System.Drawing.Point(263, 215);
             this.BTNCPSound.Name = "BTNCPSound";
             this.BTNCPSound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BTNCPSound.Size = new System.Drawing.Size(218, 23);
@@ -381,11 +383,22 @@
             this.BTNCPSound.UseVisualStyleBackColor = true;
             this.BTNCPSound.Click += new System.EventHandler(this.BTNCPSound_Click);
             // 
+            // BTNTBSettings
+            // 
+            this.BTNTBSettings.Location = new System.Drawing.Point(411, 516);
+            this.BTNTBSettings.Name = "BTNTBSettings";
+            this.BTNTBSettings.Size = new System.Drawing.Size(75, 23);
+            this.BTNTBSettings.TabIndex = 63;
+            this.BTNTBSettings.Text = "Settings";
+            this.BTNTBSettings.UseVisualStyleBackColor = true;
+            this.BTNTBSettings.Click += new System.EventHandler(this.BTNTBSettings_Click);
+            // 
             // ToolBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 547);
+            this.ClientSize = new System.Drawing.Size(498, 547);
+            this.Controls.Add(this.BTNTBSettings);
             this.Controls.Add(this.LBLVersion);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BTNW10Settings);
@@ -414,8 +427,10 @@
             this.Controls.Add(this.BTNUninstall);
             this.Controls.Add(this.BTNControl);
             this.Controls.Add(this.BTNCPSound);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ToolBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ToolBox";
             this.Load += new System.EventHandler(this.ToolBox_Load);
             this.groupBox1.ResumeLayout(false);
@@ -457,5 +472,6 @@
         private System.Windows.Forms.Button BTNUninstall;
         private System.Windows.Forms.Button BTNControl;
         private System.Windows.Forms.Button BTNCPSound;
+        private System.Windows.Forms.Button BTNTBSettings;
     }
 }

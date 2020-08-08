@@ -15,6 +15,9 @@ namespace ToolBox
         public LoadingForm()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void Form3_Load(object sender, EventArgs e)

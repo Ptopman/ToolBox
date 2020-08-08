@@ -17,6 +17,9 @@ namespace ToolBox
         public MenuStrip()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             //On form load, minimize window
             this.WindowState = FormWindowState.Minimized;
         }
@@ -25,22 +28,13 @@ namespace ToolBox
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Hide();
+            loadMenu();
         }
 
         //This is for the context menu strip on the icon
         private void NotifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                //Add buttons to the context menu
-                this.NIToolBox.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
-                this.NIToolBox.ContextMenuStrip.Items.Add("Open ToolBox", null, this.IconOpenToolBox_click);
-                this.NIToolBox.ContextMenuStrip.Items.Add("Task Manager", null, this.IconOpenTask_click);
-                this.NIToolBox.ContextMenuStrip.Items.Add(new ToolStripSeparator());
-                this.NIToolBox.ContextMenuStrip.Items.Add("Close ToolBox", null, this.IconExitToolbox_click).ForeColor = Color.Red;
-                this.NIToolBox.ContextMenuStrip.Items.Add("Restart", null, this.IconRestart_click).ForeColor = Color.Red;
-                this.NIToolBox.ContextMenuStrip.Items.Add("Shutdown", null, this.IconShutdown_click).ForeColor = Color.Red;
-            }
+            loadMenu();
         }
 
         //Opens shows Form1 (toolbox) and sets the window state to normal
@@ -78,7 +72,7 @@ namespace ToolBox
         }
 
         //Open pannel for computer information
-        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
+        void IconOpenSystemSpecs_click(object sender, EventArgs e)
         {
             LoadingForm f3 = new LoadingForm();
             f3.Show();
@@ -86,6 +80,57 @@ namespace ToolBox
             SystemInformaitonForm SysInfoForm = new SystemInformaitonForm(f3);
             //Start and show the form
             SysInfoForm.Show();
+        }
+
+        
+        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            /*
+            LoadingForm f3 = new LoadingForm();
+            f3.Show();
+            //Create new form2 () object
+            SystemInformaitonForm SysInfoForm = new SystemInformaitonForm(f3);
+            //Start and show the form
+            SysInfoForm.Show();
+            */
+        }
+
+        //Opens ToolBox Remote Desktop selection screen
+        private void IconOpenRDP_click(object sender, EventArgs e)
+        {
+            RemoteDesktopSelection rdp = new RemoteDesktopSelection();
+            rdp.Show();
+        }
+
+        //Opens putty
+        private void IconOpenPutty_click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Properties.Settings.Default.PuttyPath);
+        }
+
+        private void loadMenu()
+        {
+            //Add buttons to the context menu
+            this.NIToolBox.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.NIToolBox.ContextMenuStrip.Items.Add("Open ToolBox", null, this.IconOpenToolBox_click);
+            this.NIToolBox.ContextMenuStrip.Items.Add("Open System Info", null, this.IconOpenSystemSpecs_click);
+            this.NIToolBox.ContextMenuStrip.Items.Add("Task Manager", null, this.IconOpenTask_click);
+            this.NIToolBox.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+            this.NIToolBox.ContextMenuStrip.Items.Add("Close ToolBox", null, this.IconExitToolbox_click).ForeColor = Color.Red;
+            this.NIToolBox.ContextMenuStrip.Items.Add("Restart", null, this.IconRestart_click).ForeColor = Color.Red;
+            this.NIToolBox.ContextMenuStrip.Items.Add("Shutdown", null, this.IconShutdown_click).ForeColor = Color.Red;
+            this.NIToolBox.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+            if (Properties.Settings.Default.ShowRDPIcon)
+            {
+                this.NIToolBox.ContextMenuStrip.Items.Add("RDP", null, this.IconOpenRDP_click);
+            }
+            if (Properties.Settings.Default.ShowPuttyIcon)
+            {
+                if (File.Exists(Properties.Settings.Default.PuttyPath))
+                {
+                    this.NIToolBox.ContextMenuStrip.Items.Add("Putty", null, this.IconOpenPutty_click);
+                }
+            }
         }
     }
 }
