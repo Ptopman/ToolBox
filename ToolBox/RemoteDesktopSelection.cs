@@ -54,6 +54,16 @@ namespace ToolBox
 
         private void BTNRDPconnect_Click(object sender, EventArgs e)
         {
+            Connect();
+        }
+
+        private void LBRDPcomputers_DoubleClick(object sender, MouseEventArgs e)
+        {
+            Connect();
+        }
+
+        private void Connect()
+        {
             string item = LBRDPcomputers.SelectedItem.ToString();
             int index = item.IndexOf("- ");
             string ip = item.Substring(index + 2);
@@ -91,15 +101,18 @@ namespace ToolBox
             {
                 MessageBox.Show("IP address empty!", "Error");
             }
-            
+            Save();
+
         }
 
         private void BTNRDPremove_Click(object sender, EventArgs e)
         {
             try { LBRDPcomputers.Items.RemoveAt(LBRDPcomputers.SelectedIndex); } catch{ }
+            LBRDPcomputers.SelectedIndex = 0;
+            Save();
         }
 
-        private void BTNRDPsave_Click(object sender, EventArgs e)
+        private void Save()
         {
             try
             {
@@ -115,8 +128,8 @@ namespace ToolBox
             {
 
             }
-            
         }
+
 
         private void BTNRDEdit_Click(object sender, EventArgs e)
         {

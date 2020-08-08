@@ -32,7 +32,6 @@
             this.BTNRDPconnect = new System.Windows.Forms.Button();
             this.LBRDPcomputers = new System.Windows.Forms.ListBox();
             this.BTNRDPadd = new System.Windows.Forms.Button();
-            this.BTNRDPsave = new System.Windows.Forms.Button();
             this.BTNRDPremove = new System.Windows.Forms.Button();
             this.TBRDPip = new System.Windows.Forms.TextBox();
             this.LBLRDPip = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@
             this.LBRDPcomputers.TabIndex = 1;
             this.LBRDPcomputers.Click += new System.EventHandler(this.LBRDPcomputers_Click);
             this.LBRDPcomputers.SelectedIndexChanged += new System.EventHandler(this.LBRDPcomputers_SelectedIndexChanged);
+            this.LBRDPcomputers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LBRDPcomputers_DoubleClick);
             // 
             // BTNRDPadd
             // 
@@ -73,16 +73,6 @@
             this.BTNRDPadd.Text = "Add";
             this.BTNRDPadd.UseVisualStyleBackColor = true;
             this.BTNRDPadd.Click += new System.EventHandler(this.BTNRDPadd_Click);
-            // 
-            // BTNRDPsave
-            // 
-            this.BTNRDPsave.Location = new System.Drawing.Point(12, 200);
-            this.BTNRDPsave.Name = "BTNRDPsave";
-            this.BTNRDPsave.Size = new System.Drawing.Size(75, 23);
-            this.BTNRDPsave.TabIndex = 3;
-            this.BTNRDPsave.Text = "Save";
-            this.BTNRDPsave.UseVisualStyleBackColor = true;
-            this.BTNRDPsave.Click += new System.EventHandler(this.BTNRDPsave_Click);
             // 
             // BTNRDPremove
             // 
@@ -181,7 +171,6 @@
             this.Controls.Add(this.LBLRDPip);
             this.Controls.Add(this.TBRDPip);
             this.Controls.Add(this.BTNRDPremove);
-            this.Controls.Add(this.BTNRDPsave);
             this.Controls.Add(this.BTNRDPadd);
             this.Controls.Add(this.LBRDPcomputers);
             this.Controls.Add(this.BTNRDPconnect);
@@ -201,7 +190,6 @@
         private System.Windows.Forms.Button BTNRDPconnect;
         private System.Windows.Forms.ListBox LBRDPcomputers;
         private System.Windows.Forms.Button BTNRDPadd;
-        private System.Windows.Forms.Button BTNRDPsave;
         private System.Windows.Forms.Button BTNRDPremove;
         private System.Windows.Forms.TextBox TBRDPip;
         private System.Windows.Forms.Label LBLRDPip;
