@@ -118,11 +118,76 @@ namespace ToolBox
             
         }
 
+        private void BTNRDEdit_Click(object sender, EventArgs e)
+        {
+            
+            int index = LBRDPcomputers.SelectedIndex;
+            LBRDPcomputers.Items.RemoveAt(index);
+            LBRDPcomputers.Items.Insert(index, TBRDPdescription.Text + " - " + TBRDPip.Text);
+            LBRDPcomputers.SelectedIndex = index;
+        }
+
         private void BTNRDPsettings_Click(object sender, EventArgs e)
         {
             RDPsettings rdpsettings = new RDPsettings();
             rdpsettings.ShowDialog();
             LoadList();
+        }
+
+        public void MoveItem(int direction)
+        {
+            // Checking selected item
+            if (LBRDPcomputers.SelectedItem == null || LBRDPcomputers.SelectedIndex < 0)
+                return; // No selected item - nothing to do
+
+            // Calculate new index using move direction
+            int newIndex = LBRDPcomputers.SelectedIndex + direction;
+
+            // Checking bounds of the range
+            if (newIndex < 0 || newIndex >= LBRDPcomputers.Items.Count)
+                return; // Index out of range - nothing to do
+
+            object selected = LBRDPcomputers.SelectedItem;
+
+            // Removing removable element
+            LBRDPcomputers.Items.Remove(selected);
+            // Insert it in new position
+            LBRDPcomputers.Items.Insert(newIndex, selected);
+            // Restore selection
+            LBRDPcomputers.SetSelected(newIndex, true);
+        }
+
+        private void BTNMoveUp_Click(object sender, EventArgs e)
+        {
+            MoveItem(-1);
+        }
+
+        private void BTNMoveDown_Click(object sender, EventArgs e)
+        {
+            MoveItem(1);
+        }
+
+        private void LBRDPcomputers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void LBRDPcomputers_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string itm = "";
+
+                itm = LBRDPcomputers.SelectedItem.ToString();
+                int index = itm.IndexOf("- ");
+                TBRDPip.Text = itm.Substring(index + 2);
+
+                TBRDPdescription.Text = itm.Substring(0, index - 1);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

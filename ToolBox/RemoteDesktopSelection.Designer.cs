@@ -39,6 +39,9 @@
             this.LBLRDPdescription = new System.Windows.Forms.Label();
             this.TBRDPdescription = new System.Windows.Forms.TextBox();
             this.BTNRDPsettings = new System.Windows.Forms.Button();
+            this.BTNMoveUp = new System.Windows.Forms.Button();
+            this.BTNMoveDown = new System.Windows.Forms.Button();
+            this.BTNRDEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BTNRDPconnect
@@ -56,8 +59,10 @@
             this.LBRDPcomputers.FormattingEnabled = true;
             this.LBRDPcomputers.Location = new System.Drawing.Point(12, 12);
             this.LBRDPcomputers.Name = "LBRDPcomputers";
-            this.LBRDPcomputers.Size = new System.Drawing.Size(255, 95);
+            this.LBRDPcomputers.Size = new System.Drawing.Size(220, 95);
             this.LBRDPcomputers.TabIndex = 1;
+            this.LBRDPcomputers.Click += new System.EventHandler(this.LBRDPcomputers_Click);
+            this.LBRDPcomputers.SelectedIndexChanged += new System.EventHandler(this.LBRDPcomputers_SelectedIndexChanged);
             // 
             // BTNRDPadd
             // 
@@ -71,7 +76,7 @@
             // 
             // BTNRDPsave
             // 
-            this.BTNRDPsave.Location = new System.Drawing.Point(192, 119);
+            this.BTNRDPsave.Location = new System.Drawing.Point(12, 200);
             this.BTNRDPsave.Name = "BTNRDPsave";
             this.BTNRDPsave.Size = new System.Drawing.Size(75, 23);
             this.BTNRDPsave.TabIndex = 3;
@@ -132,11 +137,44 @@
             this.BTNRDPsettings.UseVisualStyleBackColor = false;
             this.BTNRDPsettings.Click += new System.EventHandler(this.BTNRDPsettings_Click);
             // 
+            // BTNMoveUp
+            // 
+            this.BTNMoveUp.Location = new System.Drawing.Point(238, 12);
+            this.BTNMoveUp.Name = "BTNMoveUp";
+            this.BTNMoveUp.Size = new System.Drawing.Size(29, 23);
+            this.BTNMoveUp.TabIndex = 11;
+            this.BTNMoveUp.Text = "Up";
+            this.BTNMoveUp.UseVisualStyleBackColor = true;
+            this.BTNMoveUp.Click += new System.EventHandler(this.BTNMoveUp_Click);
+            // 
+            // BTNMoveDown
+            // 
+            this.BTNMoveDown.Location = new System.Drawing.Point(238, 41);
+            this.BTNMoveDown.Name = "BTNMoveDown";
+            this.BTNMoveDown.Size = new System.Drawing.Size(29, 23);
+            this.BTNMoveDown.TabIndex = 12;
+            this.BTNMoveDown.Text = "Dn";
+            this.BTNMoveDown.UseVisualStyleBackColor = true;
+            this.BTNMoveDown.Click += new System.EventHandler(this.BTNMoveDown_Click);
+            // 
+            // BTNRDEdit
+            // 
+            this.BTNRDEdit.Location = new System.Drawing.Point(192, 119);
+            this.BTNRDEdit.Name = "BTNRDEdit";
+            this.BTNRDEdit.Size = new System.Drawing.Size(75, 23);
+            this.BTNRDEdit.TabIndex = 13;
+            this.BTNRDEdit.Text = "Edit";
+            this.BTNRDEdit.UseVisualStyleBackColor = true;
+            this.BTNRDEdit.Click += new System.EventHandler(this.BTNRDEdit_Click);
+            // 
             // RemoteDesktopSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 234);
+            this.ClientSize = new System.Drawing.Size(276, 234);
+            this.Controls.Add(this.BTNRDEdit);
+            this.Controls.Add(this.BTNMoveDown);
+            this.Controls.Add(this.BTNMoveUp);
             this.Controls.Add(this.BTNRDPsettings);
             this.Controls.Add(this.TBRDPdescription);
             this.Controls.Add(this.LBLRDPdescription);
@@ -170,5 +208,8 @@
         private System.Windows.Forms.Label LBLRDPdescription;
         private System.Windows.Forms.TextBox TBRDPdescription;
         private System.Windows.Forms.Button BTNRDPsettings;
+        private System.Windows.Forms.Button BTNMoveUp;
+        private System.Windows.Forms.Button BTNMoveDown;
+        private System.Windows.Forms.Button BTNRDEdit;
     }
 }
